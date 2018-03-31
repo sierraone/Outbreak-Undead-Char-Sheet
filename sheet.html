@@ -1,6 +1,8 @@
-<div class='sheet-2colrow'>
-    <div class='sheet-col'>
+<div class="sheet-2colrow">
+    <div class="sheet-col">
         <div class="SPEW-AI">
+            <span class="label title">S.P.E.W. Attributes</span>
+            <div class="attr-container">
             <div class="attributes-container">
                     <span class="sheet-label">STRENGTH</span>
                     <input type="text" class="sheet-base-attr" name="attr_strength" maxlength="2">
@@ -21,9 +23,40 @@
                     <input type="text" class="sheet-base-attr" name="attr_willpower" maxlength="2">
                     <input type="hidden" name="attr_perception_b">
             </div>
+            </div>
         </div>
     </div>
-    <div class='sheet-col'>
-        Hello!
+    <div class="sheet-col">
     </div>
 </div>
+
+<!-- WORKERS -->
+<script type="text/worker">
+ //load sheet
+on("sheet:opened", function(eventinfo) {
+        console.log("Outbreak: Undead Character Sheet v0.1 loaded.");
+    });
+    
+on("change:strength", function() {
+        update_attr("strength");
+    });
+on("change:perception", function() {
+        update_attr("perception");
+    });
+on("change:empathy", function() {
+        update_attr("empathy");
+    });
+on("change:willpower", function() {
+        update_attr("willpower");
+    });
+    
+    var update_attr = function(attr) {
+        var update = {};
+        getAttrs([attr],function(v) {
+            var bonus = Math.floor(v[attr]/10);
+           update[attr+"_b"] = bonus.toString();
+           setAttrs(update);
+        });
+        
+    };
+</script>
