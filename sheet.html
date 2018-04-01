@@ -1,5 +1,5 @@
 <div class="sheet-2colrow">
-    <div class="sheet-col">
+    <div class="sheet-col" style="width:60%;">
         <div class="SPEW-AI">
             <span class="sheet-label title">S.P.E.W. Attributes</span>
             <div class="attr-container">
@@ -125,6 +125,37 @@
                         </div>
                         <div class="skill-box">
                         	<button class="btn ui-draggable" type="roll" name="roll_throw" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Throw}} {{result=[[floor((abs(1d100cs<[[@{perception} + @{strength_b}]]cf>[[@{perception} + @{strength_b}+1]]-[[@{perception} + @{strength_b}]]))/10)]]}}" datai18n="throw-u">THROW<span>(Thrw%)</span></button>
+                        </div>
+                    </div>
+                </div>
+                <span class="sheet-label subtitle" style="text-align:center;width:100%;margin:20px;">Expert Skill Checks</span>
+                <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <div class="skill-box">
+                        	<button class="btn ui-draggable" type="roll" name="roll_advanced-medicine" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Advanced Medicine}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="advanced-medicine-u">ADVANCED MEDICINE<span>(AMed%)</span></button>
+                        </div>
+                        <div class="skill-box">
+                        	<button class="btn ui-draggable" type="roll" name="roll_construction-matl" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Construction (Mat'l)}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="construction-matl-u">CONSTRUCTION (MAT'L)<span>(Cnst%)</span></button>
+                        </div>
+                        <div class="skill-box">
+                        	<button class="btn ui-draggable" type="roll" name="roll_engineering" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Engineering}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="engineering-u">ENGINEERING<span>(Eng%)</span></button>
+                        </div>
+                        <div class="skill-box">
+                        	<button class="btn ui-draggable" type="roll" name="roll_martial-arts" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Martial arts}} {{result=[[floor((abs(1d100cs<[[@{strength_b} + @{perception_b}]]cf>[[@{strength_b} + @{perception_b}+1]]-[[@{strength_b} + @{perception_b}]]))/10)]]}}" datai18n="martial-arts-u">MARTIAL ARTS<span>(MtlA%)</span></button>
+                        </div>
+                    </div>
+                    <div class="sheet-col">
+                        <div class="skill-box">
+                        	<button class="btn ui-draggable" type="roll" name="roll_pilot-vehicle" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Pilot (vehicle)}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="pilot-vehicle-u">PILOT (VEHICLE)<span>(Pil%)</span></button>
+                        </div>
+                        <div class="skill-box">
+                        	<button class="btn ui-draggable" type="roll" name="roll_science-field" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Science (field)}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="science-field-u">SCIENCE (FIELD)<span>(Sci%)</span></button>
+                        </div>
+                        <div class="skill-box">
+                        	<button class="btn ui-draggable" type="roll" name="roll_survival" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Survival}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="survival-u">SURVIVAL<span>(Srvl%)</span></button>
+                        </div>
+                        <div class="skill-box">
+                        	<button class="btn ui-draggable" type="roll" name="roll_toughness" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Toughness}} {{result=[[floor((abs(1d100cs<[[@{strength_b} + @{willpower_b}]]cf>[[@{strength_b} + @{willpower_b}+1]]-[[@{strength_b} + @{willpower_b}]]))/10)]]}}" datai18n="toughness-u">TOUGHNESS<span>(Tgh%)</span></button>
                         </div>
                     </div>
                 </div>
