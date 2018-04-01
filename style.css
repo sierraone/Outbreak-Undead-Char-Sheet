@@ -5,7 +5,7 @@ html {
 
 body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 18px;
     color: #333;
 }
@@ -43,7 +43,7 @@ line-height: 16px;
 .sheet-attr-label {
     font-size:9px;
 }
-.sheet-base-attr {
+.sheet-attr {
     font-size: 30px;
     line-height: 40px;
     border: none;
@@ -69,27 +69,62 @@ line-height: 16px;
 }
 
 .sheet-skill-box {
-    display:block;
     text-align:left;
+    font-size: 8px;
 }
 
-.sheet-roll-button {
-    background-color: transparent;
-    color: black;
-    border: none;
-    font-size: 9px;
-    line-height: 12px;
-    background-image: none;
-    text-shadow: none;
-    box-shadow: none;
-    padding: 0px;
-    margin: 0px;
+
+.sheet-rolltemplate-ou table {
+    width: 189px;
+    height: 150px;
+    padding: 5px;
+    background: url(http://i.imgur.com/xBk4U1p.jpg) top left;
+    background-size: 189px 150px;
+    background-repeat: no-repeat;
+    font-family: "Courier New", Courier, monospace;
     font-weight: bold;
-    width: calc(100% - 72px);
-    overflow: hidden;
-    word-wrap: break-word;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    border-spacing: 0;
+}
+ 
+.sheet-rolltemplate-ou th {
+	color: black;
+    padding: 15px 2px 2px 20px;
+	line-height: 1.2em;
+	font-size: 1em;
     text-align: left;
 }
+ 
+ 
+.sheet-rolltemplate-ou td {
+    padding-left: 20px;
+    font-size: 1.0em;
+    vertical-align: top;
+}
+ 
+.sheet-rolltemplate-ou .sheet-result {
+    font-size: 1em;
+    text-align: center;
+    padding-bottom: 20px;
+}
+ 
+.sheet-skill-box button[type="roll"] {
+ background-color: transparent;
+color: black;
+border: none;
+font-size: 12px;
+line-height: 12px;
+background-image: none;
+text-shadow: none;
+box-shadow: none;
+padding: 0px;
+margin: 0px;
+font-weight: bold;   
+}
+button[type="roll"] span {
+    color:#A0A0A0;
+    margin:5px;
+}
 
+button[type="roll"]:before {
+    content: ""!important;
+}
