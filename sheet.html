@@ -1,28 +1,45 @@
 <div class="sheet-2colrow">
     <div class="sheet-col">
         <div class="SPEW-AI">
-            <span class="label title">S.P.E.W. Attributes</span>
+            <span class="sheet-label title">S.P.E.W. Attributes</span>
             <div class="attr-container">
-            <div class="attributes-container">
-                    <span class="sheet-label">STRENGTH</span>
+                <div class="attributes-container">
+                    <span class="sheet-label attr-label">STRENGTH</span>
                     <input type="text" class="sheet-base-attr" name="attr_strength" maxlength="2">
                     <input type="hidden" name="attr_strength_b">
-            </div>
-            <div class="attributes-container">
-                    <span class="sheet-label">PERCEPTION</span>
+                </div>
+                <div class="attributes-container">
+                    <span class="sheet-label attr-label">PERCEPTION</span>
                     <input type="text" class="sheet-base-attr" name="attr_perception" maxlength="2">
                     <input type="hidden" name="attr_perception_b">
-            </div>
-            <div class="attributes-container">
-                    <span class="sheet-label">EMPATHY</span>
+                </div>
+                <div class="attributes-container">
+                    <span class="sheet-label attr-label">EMPATHY</span>
                     <input type="text" class="sheet-base-attr" name="attr_empathy" maxlength="2">
                     <input type="hidden" name="attr_empathy_b">
-            </div>
-            <div class="attributes-container">
-                    <span class="sheet-label">WILLPOWER</span>
+                </div>
+                <div class="attributes-container">
+                    <span class="sheet-label attr-label">WILLPOWER</span>
                     <input type="text" class="sheet-base-attr" name="attr_willpower" maxlength="2">
                     <input type="hidden" name="attr_perception_b">
+                </div>
             </div>
+        </div>
+        <div class="skills-container">
+            <span class="sheet-label title">SKILLS</span>
+            <div class="basic-skills-container">
+                <span class="sheet-label subtitle">BASIC SKILL CHECKS</span>
+                <div class="sheet-2colrow">
+                    <div class="sheet-col">
+                        <div class="skill-box">
+                            <button class="btn ui-draggable" type="roll" name="roll_balance" value="[[floor((abs(1d100cs<[[@{selected|perception} + @{selected|willpower_b}]]cf>[[@{selected|perception} + @{selected|willpower_b}]]-[[@{selected|perception} + @{selected|willpower_b}]]))/10)]]">{Balance%}</button>
+                        </div>
+                   
+                    </div>
+                    <div class="sheet-col">
+                        Col2
+                    </div>
+                </div>
             </div>
         </div>
     </div>
