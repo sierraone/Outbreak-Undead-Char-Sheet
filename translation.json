@@ -1,1 +1,6 @@
-
+{
+	"balance-u": "BALANCE",
+	"climb-u": "CLIMB",
+	"composure-u": "COMPOSURE",
+	"dodge-u" : "DODGE"
+}
