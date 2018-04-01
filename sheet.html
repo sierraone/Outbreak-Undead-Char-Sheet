@@ -5,22 +5,22 @@
             <div class="attr-container">
                 <div class="attributes-container">
                     <span class="sheet-label attr-label">STRENGTH</span>
-                    <input type="text" class="sheet-base-attr" name="attr_strength" maxlength="2">
+                    <input type="text" class="sheet-attr" name="attr_strength" maxlength="2">
                     <input type="hidden" name="attr_strength_b">
                 </div>
                 <div class="attributes-container">
                     <span class="sheet-label attr-label">PERCEPTION</span>
-                    <input type="text" class="sheet-base-attr" name="attr_perception" maxlength="2">
+                    <input type="text" class="sheet-attr" name="attr_perception" maxlength="2">
                     <input type="hidden" name="attr_perception_b">
                 </div>
                 <div class="attributes-container">
                     <span class="sheet-label attr-label">EMPATHY</span>
-                    <input type="text" class="sheet-base-attr" name="attr_empathy" maxlength="2">
+                    <input type="text" class="sheet-attr" name="attr_empathy" maxlength="2">
                     <input type="hidden" name="attr_empathy_b">
                 </div>
                 <div class="attributes-container">
                     <span class="sheet-label attr-label">WILLPOWER</span>
-                    <input type="text" class="sheet-base-attr" name="attr_willpower" maxlength="2">
+                    <input type="text" class="sheet-attr" name="attr_willpower" maxlength="2">
                     <input type="hidden" name="attr_perception_b">
                 </div>
             </div>
@@ -32,7 +32,16 @@
                 <div class="sheet-2colrow">
                     <div class="sheet-col">
                         <div class="skill-box">
-                            <button class="btn ui-draggable" type="roll" name="roll_balance" value="[[floor((abs(1d100cs<[[@{selected|perception} + @{selected|willpower_b}]]cf>[[@{selected|perception} + @{selected|willpower_b}]]-[[@{selected|perception} + @{selected|willpower_b}]]))/10)]]">{Balance%}</button>
+                            <button class="btn ui-draggable" type="roll" name="roll_balance" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Balance}} {{result=[[floor((abs(1d100cs<[[@{perception} + @{willpower_b}]]cf>[[@{perception} + @{willpower_b}+1]]-[[@{perception} + @{willpower_b}]]))/10)]]}}" datai18n="balance-u">BALANCE<span>(Bal%)</span></span></button>
+                        </div>
+                        <div class="skill-box">
+                            <button class="btn ui-draggable" type="roll" name="roll_climb" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Climb}} {{result=[[floor((abs(1d100cs<[[@{strength} + @{willpower_b}]]cf>[[@{strength} + @{willpower_b}+1]]-[[@{strength} + @{willpower_b}]]))/10)]]}}" datai18n="climb-u">CLIMB<span>(Clim%)</span></button>
+                        </div>
+                    <div class="skill-box">
+                            <button class="btn ui-draggable" type="roll" name="roll_composure" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Composure}} {{result=[[floor((abs(1d100cs<[[@{willpower} + @{empathy_b}]]cf>[[@{willpower} + @{empathy_b}+1]]-[[@{willpower} + @{empathy_b}]]))/10)]]}}" datai18n="composure-u">COMPOSURE<span>(Cmps%)</span></span></button>
+                        </div>
+                        <div class="skill-box">
+                            <button class="btn ui-draggable" type="roll" name="roll_dodge" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Climb}} {{result=[[floor((abs(1d100cs<[[@{perception} + @{willpower_b}]]cf>[[@{perception} + @{willpower_b}+1]]-[[@{perception} + @{willpower_b}]]))/10)]]}}" datai18n="dodge-u">DODGE<span>(Do%)</span></button>
                         </div>
                    
                     </div>
@@ -47,13 +56,30 @@
     </div>
 </div>
 
+<rolltemplate class="sheet-rolltemplate-ou">
+    <table>
+        <tr><th>{{name}} rolls{{#roll_name}} {{roll_name}}{{/roll_name}}</th></tr>
+        <tr>
+            <td class="result">{{#rollWasCrit() result}}
+            {{result}} degrees of Success
+            {{/rollWasCrit() result}}
+            {{#rollWasFumble() result}}
+            {{result}} degrees of Failure
+            {{/rollWasFumble() result}}
+            </td>        
+        </tr>
+    </table>
+</rolltemplate>
+
+
+
+
 <!-- WORKERS -->
 <script type="text/worker">
  //load sheet
 on("sheet:opened", function(eventinfo) {
         console.log("Outbreak: Undead Character Sheet v0.1 loaded.");
     });
-    
 on("change:strength", function() {
         update_attr("strength");
     });
@@ -66,7 +92,6 @@ on("change:empathy", function() {
 on("change:willpower", function() {
         update_attr("willpower");
     });
-    
     var update_attr = function(attr) {
         var update = {};
         getAttrs([attr],function(v) {
@@ -74,6 +99,5 @@ on("change:willpower", function() {
            update[attr+"_b"] = bonus.toString();
            setAttrs(update);
         });
-        
     };
 </script>
