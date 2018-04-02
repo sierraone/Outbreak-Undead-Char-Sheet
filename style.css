@@ -17,23 +17,25 @@ line-height: 16px;
 }
 .sheet-attr-container {
     text-align: center;
+    display:inline-block;
 }
 .sheet-attributes-container {
-    width: 70px;
+    width: 60px;
     border: 1px solid #666;
     border-radius: 5px;
     position: relative;
     padding-bottom: 10px;
     margin-bottom: 19px;
-    height: 64px;
+    height: 50px;
     text-align: center;
     display: inline-block;
+    vertical-align:top;
 }
 
 .sheet-label {
     display: block;
-    font-size: 12px;
-    line-height: 12px;
+    font-size: 9px;
+    line-height: 10px;
     width: 100%;
     text-align: center;
     font-weight: bold;
@@ -41,11 +43,11 @@ line-height: 16px;
 }
 
 .sheet-attr-label {
-    font-size:9px;
+    font-size:8px;
 }
 .sheet-attr {
-    font-size: 30px;
-    line-height: 40px;
+    font-size: 27px;
+    line-height: 30px;
     border: none;
     background: none;
     box-shadow: none;
@@ -59,15 +61,11 @@ line-height: 16px;
     display: inline-block;
 }
 
-.sheet-title {
-    font-size:20px;
-    margin: 10px;
-}
-
 .sheet-subtitle {
     font-size:15px;
-    margin: 10px;
     text-align: left;
+    margin-bottom:10px;
+    margin-top:10px;
 }
 
 .sheet-skill-box {
@@ -176,8 +174,7 @@ button[type="roll"]:before {
 }
 
 .sheet-resource-section {
-    padding-right:20px;
-    text-align:left;
+    padding-right:10px;
 }
 
 input[type="number"] {
@@ -192,10 +189,20 @@ input[type="number"] {
 
 .sheet-resource {
     font-size: 18px;
-    vertical-align:middle;
     text-align:right;
+    display:inline-block;
+    width:200px;
 }
 
 .sheet-resource-section input[type="number"] {
-    font-size:20px;
+    font-size:18px;
+    width:40px;
+    float:right;
+}
+.sheet-resource-container {
+    height:30px;
+}
+.sheet-dos-dof[value="1"] ~ .sheet-failure,
+.sheet-dos-dof[value="0"] ~ .sheet-success {
+    display:none;
 }
