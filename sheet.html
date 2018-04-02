@@ -161,6 +161,18 @@
                 </div>
             </div>
         </div>
+        <div class="inventory">
+            <fieldset class="repeating_skills">            
+                <select name="attr_dtype" class="dtype">                
+                    <option value="d4">d4</option>
+                        <option value="d6">d6</option>
+                        <option value="d8">d8</option>
+                        <option value="d10">d10</option>
+                        <option value="d12">d12</option>
+                </select>
+                <input type="text" name="attr_skillname" />        
+</fieldset>
+        </div>
     </div>
     <div class="sheet-col" style="width:32%;">
         <img src="https://imgur.com/wvobRO2.jpg" style="height:60px;">
@@ -196,6 +208,11 @@
         </div>
         <div class="resource-section" style="margin-top:20px;">
             <div class="resource-container">
+                <span class="resource label">Damage Threshold
+                <img src="https://i.imgur.com/tbNXuhO.png" style="height:20px;"></span>
+                <input type="number" name="attr_damage_threshold" min="0" value="@{damage_threshold_max}"></input>
+            </div>
+            <div class="resource-container">
                 <span class="success resource label">Success/Failure
                 <img src="https://i.imgur.com/zTvqu70.png" style="height:20px;">
                 <img src="https://i.imgur.com/OnbZmpE.png" style="height:20px;"></span>
@@ -203,15 +220,32 @@
             </div>
             <div>
                 <span class="resource label">Survival Points <img src="https://i.imgur.com/qzZMOTj.png" style="height:20px;"></span>
-                <input type="number" name="attr_survival_points" min="0" value="0"></input>
+                <input type="number" name="attr_survival_points" min="0" max="999" value="0"></input>
             </div>
             <div>
                 <span class="resource label">Gestalt Level <img src="https://i.imgur.com/DYydK5X.png" style="height:20px;"></span>
-                <input type="number" name="attr_gestalt-level" min="0" value="0"></input>
+                <input type="number" name="attr_gestalt-level" min="0" max="999" value="0"></input>
             </div>
             <div>
                 <span class="resource label">Morale <img src="https://i.imgur.com/a61nfgr.png" style="height:20px;"></span>
-                <input type="number" name="attr_morale" min="0" value="0"></input>
+                <input type="number" name="attr_morale" min="0" max="999" value="0"></input>
+            </div>
+            <div class="resource-section" style="padding-right:0px">
+                <div class="injury-container">
+                    <input type="checkbox" name="attr_injury1_max" value="1"><input type="text" name="attr_injury1" placeholder="Injury #1">
+                </div>
+                <div class="injury-container">
+                    <input type="checkbox" name="attr_injury2_max" value="1"><input type="text" name="attr_injury2" placeholder="Injury #2">
+                </div>
+                <div class="injury-container">
+                    <input type="checkbox" name="attr_injury3_max" value="1"><input type="text" name="attr_injury3" placeholder="Injury #3">
+                </div>
+                <div class="injury-container">
+                    <input type="checkbox" name="attr_injury4_max" value="1"><input type="text" name="attr_injury4" placeholder="Injury #4">
+                </div>
+                <div class="injury-container">
+                    <input type="checkbox" name="attr_injury5_max" value="1"><input type="text" name="attr_injury5" placeholder="Injury #5">
+                </div>
             </div>
         </div>
         
@@ -289,6 +323,16 @@ on("change:empathy_b", function() {
 });
 on("change:willpower_b", function() {
     update_skills("willpower"); 
+});
+
+on("change:damage_threshold change:damage_threshold_max", function() {
+    var update = {};
+    getAttrs(["damage_threshold","damage_threshold_max"], function(v) {
+        if (parseInt(v["damage_threshold"])>parseInt(v["damage_threshold_max"])) {
+           update["damage_threshold"] = v["damage_threshold_max"];
+        }  
+        setAttrs(update);
+   });
 });
 var update_attr = function(attr) {
     var update = {};
