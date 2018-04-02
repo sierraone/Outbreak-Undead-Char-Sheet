@@ -56,6 +56,7 @@ line-height: 16px;
     color: black;
     width:100%;
     text-align: center;
+    display: inline-block;
 }
 
 .sheet-title {
@@ -65,7 +66,8 @@ line-height: 16px;
 
 .sheet-subtitle {
     font-size:15px;
-    margin: 5px;
+    margin: 10px;
+    text-align: left;
 }
 
 .sheet-skill-box {
@@ -74,19 +76,19 @@ line-height: 16px;
 }
 
 
-.sheet-rolltemplate-ou table {
-    width: 189px;
+.sheet-rolltemplate-ou  table, .sheet-rolltemplate-dice-roll table {
+    width: 180px;
     height: 150px;
     padding: 5px;
     background: url(http://i.imgur.com/xBk4U1p.jpg) top left;
-    background-size: 189px 150px;
+    background-size: 180px 150px;
     background-repeat: no-repeat;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
     border-spacing: 0;
 }
  
-.sheet-rolltemplate-ou th {
+.sheet-rolltemplate-ou th, .sheet-rolltemplate-dice-roll th {
 	color: black;
     padding: 15px 2px 2px 20px;
 	line-height: 1.2em;
@@ -95,20 +97,20 @@ line-height: 16px;
 }
  
  
-.sheet-rolltemplate-ou td {
+.sheet-rolltemplate-ou td, .sheet-rolltemplate-dice-roll td {
     padding-left: 20px;
     font-size: 1.0em;
     vertical-align: top;
 }
  
-.sheet-rolltemplate-ou .sheet-result {
+.sheet-rolltemplate-ou .sheet-result, .sheet-rolltemplate-dice-roll .sheet-result {
     font-size: 1em;
     text-align: center;
     padding-bottom: 20px;
 }
  
-.sheet-skill-box button[type="roll"] {
- background-color: transparent;
+.sheet-skill-box button[type="roll"], .sheet-dice-container button[type="roll"] {
+background-color: transparent;
 color: black;
 border: none;
 font-size: 12px;
@@ -120,6 +122,38 @@ padding: 0px;
 margin: 0px;
 font-weight: bold;   
 }
+
+.sheet-dice {
+    height:16px;
+    width:16px;
+    display:inline-block;
+    border: 2px solid black;
+    vertical-align: middle;
+    border-radius:2px;
+}
+
+.sheet-dice-container button[type="roll"]:hover {
+    height:17px;
+    width:17px;
+}
+.sheet-difficulty {
+    background-color: black;
+    border:2px solid gray;
+}
+
+.sheet-depletion {
+    background-color: white;
+    border:2px solid gray;
+}
+
+.sheet-speed {
+    background-color: #3366ff;
+}
+
+.sheet-damage {
+    background-color: red;
+}
+
 button[type="roll"] span {
     color:#A0A0A0;
     margin:5px;
@@ -127,4 +161,41 @@ button[type="roll"] span {
 
 button[type="roll"]:before {
     content: ""!important;
+}
+
+.sheet-skill-box button[type="roll"]:hover {
+    color:red;
+}
+
+.sheet-dice-container span {
+    text-align:right;
+}
+
+.sheet-dice-section {
+    padding-right: 20px;
+}
+
+.sheet-resource-section {
+    padding-right:20px;
+    text-align:left;
+}
+
+input[type="number"] {
+    border:none;
+    background:transparent;
+    text-shadow:none;
+    box-shadow:none;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+    vertical-align:middle;
+}
+
+.sheet-resource {
+    font-size: 18px;
+    vertical-align:middle;
+    text-align:right;
+}
+
+.sheet-resource-section input[type="number"] {
+    font-size:20px;
 }
