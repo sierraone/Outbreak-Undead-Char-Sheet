@@ -161,18 +161,6 @@
                 </div>
             </div>
         </div>
-        <div class="inventory">
-            <fieldset class="repeating_skills">            
-                <select name="attr_dtype" class="dtype">                
-                    <option value="d4">d4</option>
-                        <option value="d6">d6</option>
-                        <option value="d8">d8</option>
-                        <option value="d10">d10</option>
-                        <option value="d12">d12</option>
-                </select>
-                <input type="text" name="attr_skillname" />        
-</fieldset>
-        </div>
     </div>
     <div class="sheet-col" style="width:32%;">
         <img src="https://imgur.com/wvobRO2.jpg" style="height:60px;">
@@ -209,42 +197,83 @@
         <div class="resource-section" style="margin-top:20px;">
             <div class="resource-container">
                 <span class="resource label">Damage Threshold
-                <img src="https://i.imgur.com/tbNXuhO.png" style="height:20px;"></span>
+                <img src="https://i.imgur.com/tbNXuhO.png"></span>
                 <input type="number" name="attr_damage_threshold" min="0" value="@{damage_threshold_max}"></input>
             </div>
             <div class="resource-container">
                 <span class="success resource label">Success/Failure
-                <img src="https://i.imgur.com/zTvqu70.png" style="height:20px;">
-                <img src="https://i.imgur.com/OnbZmpE.png" style="height:20px;"></span>
+                <img src="https://i.imgur.com/zTvqu70.png">
+                <img src="https://i.imgur.com/OnbZmpE.png"></span>
                 <input type="number" name="attr_dos_dof" min="-5" max="5" value="0"></input>
             </div>
             <div>
-                <span class="resource label">Survival Points <img src="https://i.imgur.com/qzZMOTj.png" style="height:20px;"></span>
+                <span class="resource label">Survival Points <img src="https://i.imgur.com/qzZMOTj.png"></span>
                 <input type="number" name="attr_survival_points" min="0" max="999" value="0"></input>
             </div>
             <div>
-                <span class="resource label">Gestalt Level <img src="https://i.imgur.com/DYydK5X.png" style="height:20px;"></span>
+                <span class="resource label">Gestalt Level <img src="https://i.imgur.com/DYydK5X.png"></span>
                 <input type="number" name="attr_gestalt-level" min="0" max="999" value="0"></input>
             </div>
             <div>
-                <span class="resource label">Morale <img src="https://i.imgur.com/a61nfgr.png" style="height:20px;"></span>
+                <span class="resource label">Morale <img src="https://i.imgur.com/a61nfgr.png"></span>
                 <input type="number" name="attr_morale" min="0" max="999" value="0"></input>
             </div>
             <div class="resource-section" style="padding-right:0px">
-                <div class="injury-container">
-                    <input type="checkbox" name="attr_injury1_max" value="1"><input type="text" name="attr_injury1" placeholder="Injury #1">
+                <div class="defence">
+                    <div class="toggle-container"><span class="subtitle label">Defence</span></div>
+                <input type="checkbox" class="display-toggle" checked=checked>
+                <div class="collapsible">
+                    <input type="hidden" name="attr_defence_base" value="0">
+                    <div class="defence-container">
+                        <span class="label">ACID <span class="defence-label" name="attr_defence_acid"></span></span>
+                    </div>
+                    <div class="defence-container">
+                        <span class="label">BLUDGEONING <span class="defence-label" name="attr_defence_bludgeoning"></span></span>
+                    </div>
+                    <div class="defence-container">
+                        <span class="label">ELECTRICAL <span class="defence-label" name="attr_defence_electrical"></span></span></span>
+                    </div>
+                    <div class="defence-container">
+                        <span class="label">PIERCING <span class="defence-label" name="attr_defence_piercing"></span></span>
+                    </div>
+                    <div class="defence-container">
+                        <span class="label">POISON <span class="defence-label" name="attr_defence_poison"></span></span>
+                    </div>
+                    <div class="defence-container">
+                        <span class="label">RADIATION <span class="defence-label" name="attr_defence_radiation"></span></span>
+                    </div>
+                    <div class="defence-container">
+                        <span class="label">SLASHING <span class="defence-label" name="attr_defence_slashing"></span></span>
+                    </div>
+                    <div class="defence-container">
+                        <span class="label">THERMAL <span class="defence-label" name="attr_defence_thermal"></span></span>
+                    </div>
                 </div>
-                <div class="injury-container">
-                    <input type="checkbox" name="attr_injury2_max" value="1"><input type="text" name="attr_injury2" placeholder="Injury #2">
                 </div>
-                <div class="injury-container">
-                    <input type="checkbox" name="attr_injury3_max" value="1"><input type="text" name="attr_injury3" placeholder="Injury #3">
+                <div class="health">
+                    <div class="toggle-container"><span class="subtitle label">Injuries</span></div>
+                <input type="checkbox" class="display-toggle" checked=checked>
+                <div class="collapsible">
+                    <div class="injury-container">
+                        <input type="checkbox" name="attr_injury1_max" value="1"><input type="text" name="attr_injury1" placeholder="Injury #1">
+                    </div>
+                    <div class="injury-container">
+                        <input type="checkbox" name="attr_injury2_max" value="1"><input type="text" name="attr_injury2" placeholder="Injury #2">
+                    </div>
+                    <div class="injury-container">
+                        <input type="checkbox" name="attr_injury3_max" value="1"><input type="text" name="attr_injury3" placeholder="Injury #3">
+                    </div>
+                    <div class="injury-container">
+                        <input type="checkbox" name="attr_injury4_max" value="1"><input type="text" name="attr_injury4" placeholder="Injury #4">
+                    </div>
+                    <div class="injury-container">
+                        <input type="checkbox" name="attr_injury5_max" value="1"><input type="text" name="attr_injury5" placeholder="Injury #5">
+                    </div>
+                    <div>
+                        <span class="resource label">Viral <img src="https://imgur.com/j1KRRtT.png"></span>
+                        <input type="number" name="attr_viral" min="0" max="10" value="0"></input>
+                    </div>
                 </div>
-                <div class="injury-container">
-                    <input type="checkbox" name="attr_injury4_max" value="1"><input type="text" name="attr_injury4" placeholder="Injury #4">
-                </div>
-                <div class="injury-container">
-                    <input type="checkbox" name="attr_injury5_max" value="1"><input type="text" name="attr_injury5" placeholder="Injury #5">
                 </div>
             </div>
         </div>
