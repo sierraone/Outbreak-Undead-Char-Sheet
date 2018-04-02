@@ -1,7 +1,8 @@
 <div class="sheet-2colrow">
-    <div class="sheet-col" style="width:60%;border-right:1px solid black;">
-        <div class="SPEW-AI">
-            <span class="sheet-label title">S.P.E.W. Attributes</span>
+    <div class="sheet-col" style="width:62%;border-right:1px solid gray;">
+        
+        <div class="SPEW-AI" style="display:inline-block;">
+            <img src="https://imgur.com/8kQujlA.jpg" style="height:60px;display:inline-block;vertical-align:top;">
             <div class="attr-container">
                 <div class="attributes-container">
                     <span class="sheet-label attr-label">STRENGTH</span>
@@ -26,7 +27,6 @@
             </div>
         </div>
         <div class="skills-container">
-            <span class="sheet-label title">SKILLS</span>
             <div class="basic-skills-container">
                 <div class="sheet-2colrow">
                     <div class="sheet-col">
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <span class="sheet-label subtitle" style="text-align:center;width:100%;">Expert Skill Checks</span>
+                <span class="sheet-label subtitle" style="margin-left:30%;margin-top:20px;width:100%;">Expert Skill Checks</span>
                 <div class="sheet-2colrow">
                     <div class="sheet-col">
                         <div class="skill-box">
@@ -162,24 +162,8 @@
             </div>
         </div>
     </div>
-    <div class="sheet-col" style="width:35%;">
-        <div class="resource-section">
-            <div>
-                <span class="resource label">Survival Points <img src="https://i.imgur.com/qzZMOTj.png" style="height:20px;">
-                <input type="number" name="attr_survival_points" min="0" value="0"></input>
-                </span>
-            </div>
-            <div>
-                <span class="resource label">Gestalt Level <img src="https://i.imgur.com/DYydK5X.png" style="height:20px;">
-                <input type="number" name="attr_gestalt-level" min="0" value="0"></input>
-                </span>
-            </div>
-            <div>
-                <span class="resource label">Morale <img src="https://i.imgur.com/a61nfgr.png" style="height:20px;">
-                <input type="number" name="attr_morale" min="0" value="0"></input>
-                </span>
-            </div>
-        </div>
+    <div class="sheet-col" style="width:32%;">
+        <img src="https://imgur.com/wvobRO2.jpg" style="height:60px;">
         <div class="dice-section">
             <div class="dice-container">
                 <span class="label">DIFFICULTY DICE
@@ -210,10 +194,31 @@
                 </button>
             </div>
         </div>
+        <div class="resource-section" style="margin-top:20px;">
+            <div class="resource-container">
+                <span class="success resource label">Success/Failure
+                <img src="https://i.imgur.com/zTvqu70.png" style="height:20px;">
+                <img src="https://i.imgur.com/OnbZmpE.png" style="height:20px;"></span>
+                <input type="number" name="attr_dos_dof" min="-5" max="5" value="0"></input>
+            </div>
+            <div>
+                <span class="resource label">Survival Points <img src="https://i.imgur.com/qzZMOTj.png" style="height:20px;"></span>
+                <input type="number" name="attr_survival_points" min="0" value="0"></input>
+            </div>
+            <div>
+                <span class="resource label">Gestalt Level <img src="https://i.imgur.com/DYydK5X.png" style="height:20px;"></span>
+                <input type="number" name="attr_gestalt-level" min="0" value="0"></input>
+            </div>
+            <div>
+                <span class="resource label">Morale <img src="https://i.imgur.com/a61nfgr.png" style="height:20px;"></span>
+                <input type="number" name="attr_morale" min="0" value="0"></input>
+            </div>
+        </div>
+        
         
     </div>
 </div>
-
+    
 <rolltemplate class="sheet-rolltemplate-ou">
     <table>
         <tr><th>{{name}} rolls {{roll_name}}</th></tr>
@@ -262,32 +267,40 @@ on("sheet:opened", function(eventinfo) {
         console.log("Outbreak: Undead Character Sheet v0.1 loaded.");
     });
 on("change:strength", function() {
-        update_attr("strength");
-		update_skills("strength");
+    update_attr("strength");
     });
 on("change:perception", function() {
-        update_attr("perception");
-        update_skills("perception");
+    update_attr("perception");
     });
 on("change:empathy", function() {
-        update_attr("empathy");
-        update_skills("empathy");
+    update_attr("empathy");
     });
 on("change:willpower", function() {
-        update_attr("willpower");
-        update_skills("willpower");
+    update_attr("willpower");
     });
-    var update_attr = function(attr) {
-        var update = {};
-        getAttrs([attr],function(v) {
-            var bonus = Math.floor(v[attr]/10);
+on("change:strength_b", function() {
+    update_skills("strength"); 
+});
+on("change:perception_b", function() {
+    update_skills("perception"); 
+});
+on("change:empathy_b", function() {
+    update_skills("empathy"); 
+});
+on("change:willpower_b", function() {
+    update_skills("willpower"); 
+});
+var update_attr = function(attr) {
+    var update = {};
+    getAttrs([attr],function(v) {
+        var bonus = Math.floor(v[attr]/10);
            update[attr+"_b"] = bonus.toString();
            setAttrs(update);
         });
     };
 var update_skills = function(attr) {
 		var update = {};
-		getAttrs(["strength","perception","empathy","willpower","strength_b","perception_b","empathy_b","willpower_b"],function(v) {
+		getAttrs(["strength","perception","empathy","willpower","strength_b","perception_b","empathy_b","willpower_b","damage_threshold_mod"],function(v) {
 			switch (attr) {
 			case "strength":
 			    update["climb"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
@@ -297,6 +310,7 @@ var update_skills = function(attr) {
 			    update["lift_pull"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
 			    update["resist_pain"] = (parseInt(v["willpower"])+parseInt(v["strength_b"])).toString();
 			    update["swim"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
+			    update["damage_threshold_max"] = (parseInt(v["strength_b"])+parseInt(v["willpower_b"])+parseInt(v["damage_threshold_mod"]));
 			break;
 			case "perception":
 			    update["balance"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
@@ -326,6 +340,7 @@ var update_skills = function(attr) {
 			    update["stealth"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString(); 
 			    update["spot_listen"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString(); 
 			    update["swim"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString(); 
+			    update["damage_threshold_max"] = (parseInt(v["strength_b"])+parseInt(v["willpower_b"])+parseInt(v["damage_threshold_mod"]));
 			break;
 			
 			}
