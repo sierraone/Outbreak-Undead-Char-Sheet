@@ -33,7 +33,7 @@ line-height: 16px;
 }
 
 .sheet-label {
-    display: block;
+    display: inline-block;
     font-size: 9px;
     line-height: 10px;
     width: 100%;
@@ -189,16 +189,20 @@ input[type=number] {
 }
 
 .sheet-resource {
-    font-size: 18px;
+    font-size: 15px;
     text-align:right;
     display:inline-block;
     width:200px;
 }
 
 .sheet-resource-section input[type=number] {
-    font-size:18px;
-    width:60px;
+    font-size:15px;
+    width:50px;
     float:right;
+}
+
+.sheet-resource-section img {
+    height:18px;
 }
 .sheet-resource-container {
     height:30px;
@@ -216,4 +220,35 @@ input[type=number] {
 
 .sheet-injury-container {
     text-align:right;
+}
+
+.sheet-display-toggle {
+    opacity:0;    
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.sheet-health .sheet-display-toggle:checked ~ .sheet-collapsible {
+    display:none;
+}
+
+.sheet-defence .sheet-display-toggle:checked ~ .sheet-collapsible {
+    display:none;
+}
+.sheet-toggle-container {
+    background-color: #DCDCDC;
+    padding-left:10px;
+}
+.sheet-health, .sheet-defence {
+    position:relative;
+    margin-bottom: 5px;
+}
+
+.sheet-defence-label {
+    font-size:15px;
+    display:inline-block;
+    font-weight: bold;
 }
