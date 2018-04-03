@@ -94,10 +94,14 @@ line-height: 16px;
 }
  
 .sheet-rolltemplate-ou .sheet-result, .sheet-rolltemplate-dice-roll .sheet-result {
-    font-size: 12px;
-    line-height:20px;
+    font-size: 1em;
     text-align: center;
     padding-bottom: 10px;
+}
+
+.sheet-rolltemplate-dice-roll .sheet-result {
+    line-height:20px;
+    font-size:12px;
 }
  
 .sheet-skill-box button[type=roll], .sheet-dice-container button[type=roll] {
@@ -253,6 +257,7 @@ input[type=number] {
 .sheet-display-toggle:hover + div {
     color:black;
 }
+.sheet-inventory-section .sheet-display-toggle:checked ~ .sheet-collapsible,
 .sheet-advancement .sheet-display-toggle:checked ~ .sheet-collapsible,
 .sheet-resources .sheet-display-toggle:checked ~ .sheet-collapsible,
 .sheet-skills .sheet-display-toggle:checked ~ .sheet-collapsible,
@@ -275,10 +280,7 @@ input[type=number] {
     color: #808080;
     text-align:left;
 }
-.sheet-skills-container {
-    position:relative;
-}
-.sheet-advancement, .sheet-resources, .sheet-health, .sheet-defence, .sheet-dice-section{
+.sheet-skills-container, .sheet-inventory-section, .sheet-advancement, .sheet-resources, .sheet-health, .sheet-defence, .sheet-dice-section{
     position:relative;
     margin-bottom: 5px;
 }
