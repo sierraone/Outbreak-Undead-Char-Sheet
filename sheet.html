@@ -366,33 +366,25 @@
 <!-- WORKERS -->
 <script type="text/worker">
  //load sheet
-var spew = ["strength","perception","empathy","willpower"];
+var spew = ["strength","perception","empathy","willpower","strength_b","perception_b","empathy_b","willpower_b"];
 var basic_skills = ["balance","climb","composure","dodge","endurance","expressions","grapple","hold","jump_leap","lift_pull","resist_pain","search","stealth","spot_listen","swim"];
 var trained_skills = ["bow_crossbow","brawl","calm_other","persuade","barter_bribe","command_coax","detect_motives","intimidate","long_gun","pistol","first_aid","bludgeon","piercing","slashing","navigation","throw"];
 var expert_skills = ["advanced_mediciine","construction","engineering","martial_arts","pilot","science","survival","toughness"];
-var defence = ["damage_threshold","damage_threshold_max","defence_base","defence_acid_mod","defence_bludgeoning_mod","defence_electrical_mod","defence_piercing_mod","defence_poison_mod","defence_radiation_mod","defence_slashing_mod","defence_thermal_mod","defence_mod"];
+var defence = ["damage_threshold","damage_threshold_max","damage_threshold_mod","defence_base","defence_acid_mod","defence_bludgeoning_mod","defence_electrical_mod","defence_piercing_mod","defence_poison_mod","defence_radiation_mod","defence_slashing_mod","defence_thermal_mod","defence_mod"];
+var all_attr = spew.concat(basic_skills,trained_skills,expert_skills,defence);
 on("sheet:opened", function(eventinfo) {
     //initialize all
         var update = {};
-        var failure = {};
         //spew-ai
-        getAttrs(spew, function(v) {
-            for (var index in v) {
-                if (isNaN(parseInt(v[index]))) {
-                    update[index] = "0";
-                    console.log(index+" initialized.");
+        getAttrs(all_attr, function(v) {
+             _.each(all_attr, function(attr) {
+                if (isNaN(parseInt(v[attr]))) {
+                    update[attr] = "0";
+                    console.log(attr+" initialized.");
                 }
-            }
-            setAttrs(update, function() {
-                update_attr("strength");
-                update_attr("perception");
-                update_attr("empathy");
-                update_attr("willpower");
             });
-            
+            setAttrs(update);
         });
-        
-
     });
 on("change:strength", function() {
     update_attr("strength");
