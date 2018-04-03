@@ -29,7 +29,7 @@
         <div class="skills-container">
             <div class="basic-skills-container">
                 <div class="sheet-2colrow">
-                    <div class="sheet-col">
+                    <div class="sheet-col" style="width:40%;">
                         <span class="sheet-label subtitle">Basic Skill Checks</span>
                         <div class="skill-box">
                             <button class="btn ui-draggable" type="roll" name="roll_balance" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Balance}} {{result=[[floor((abs(1d100cs<@{balance}cf>[[@{balance}+1]]-@{balance}))/10)]]}}" datai18n="balance-u">BALANCE<span>(Bal%)</span></button>
@@ -79,52 +79,52 @@
                     <div class="sheet-col">
                         <span class="sheet-label subtitle">Trained Skill Checks</span>
                         <div class="skill-box">
-	                        <button class="btn ui-draggable" type="roll" name="roll_bow-crossbow" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Bow/Crossbow}} {{result=[[floor((abs(1d100cs<[[@{perception} + @{strength_b}]]cf>[[@{perception} + @{strength_b}+1]]-[[@{perception} + @{strength_b}]]))/10)]]}}" datai18n="bow-crossbow-u">BOW/CROSSBOW<span>(Bow%)</span></button>
+	                        <button class="btn ui-draggable" type="roll" name="roll_bow-crossbow" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Bow/Crossbow}} {{result=[[floor((abs(1d100cs<@{bow_crossbow}cf>[[@{bow_crossbow}+1]]-@{bow_crossbow}))/10)]]}}" datai18n="bow-crossbow-u">BOW/CROSSBOW<span>(Bow%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_brawl" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Brawl}} {{result=[[floor((abs(1d100cs<[[@{strength} + @{willpower_b}]]cf>[[@{strength} + @{willpower_b}+1]]-[[@{strength} + @{willpower_b}]]))/10)]]}}" datai18n="brawl-u">BRAWL<span>(Brl%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_brawl" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Brawl}} {{result=[[floor((abs(1d100cs<@{brawl}cf>[[@{brawl}+1]]-@{brawl}))/10)]]}}" datai18n="brawl-u">BRAWL<span>(Brl%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_calm-other" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Calm Other}} {{result=[[floor((abs(1d100cs<[[@{empathy} + @{willpower_b}]]cf>[[@{empathy} + @{willpower_b}+1]]-[[@{empathy} + @{willpower_b}]]))/10)]]}}" datai18n="calm-other-u">CALM OTHER<span>(CO%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_calm-other" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Calm Other}} {{result=[[floor((abs(1d100cs<@{calm_other}cf>[[@{calm_other}+1]]-@{calm_other}))/10)]]}}" datai18n="calm-other-u">CALM OTHER<span>(CO%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_dipl-persuade" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. (Persuade)}} {{result=[[floor((abs(1d100cs<[[@{empathy} + @{perception_b}]]cf>[[@{empathy} + @{perception_b}+1]]-[[@{empathy} + @{perception_b}]]))/10)]]}}" datai18n="dipl-persuade-u">DIPL.(PERSUADE)<span>(D-P%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_dipl-persuade" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. (Persuade)}} {{result=[[floor((abs(1d100cs<@{persuade}cf>[[@{persuade}+1]]-@{persuade}))/10)]]}}" datai18n="dipl-persuade-u">DIPL.(PERSUADE)<span>(D-P%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_barter-bribe" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. (Barter/Bribe)}} {{result=[[floor((abs(1d100cs<[[@{empathy} + @{willpower_b}]]cf>[[@{empathy} + @{willpower_b}+1]]-[[@{empathy} + @{willpower_b}]]))/10)]]}}" datai18n="dipl-barter-bribe-u">DIPL. (BARTER/BRIBE)<span>(D-BB%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_barter-bribe" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. (Barter/Bribe)}} {{result=[[floor((abs(1d100cs<@{barter_bribe}cf>[[@{barter_bribe}+1]]-@{barter_bribe}))/10)]]}}" datai18n="dipl-barter-bribe-u">DIPL. (BARTER/BRIBE)<span>(D-BB%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_command-coax" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. (Command/Coax)}} {{result=[[floor((abs(1d100cs<[[@{empathy} + @{willpower_b}]]cf>[[@{empathy} + @{willpower_b}+1]]-[[@{empathy} + @{willpower_b}]]))/10)]]}}" datai18n="dipl-command-coax-u">DIPL. (COMMAND/COAX)<span>(D-CC%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_command-coax" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. (Command/Coax)}} {{result=[[floor((abs(1d100cs<@{command_coax}cf>[[@{command_coax}+1]]-@{command_coax}))/10)]]}}" datai18n="dipl-command-coax-u">DIPL. (COMMAND/COAX)<span>(D-CC%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_det-motives" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. \n(Det. Motives)}} {{result=[[floor((abs(1d100cs<[[@{empathy} + @{perception_b}]]cf>[[@{empathy} + @{perception_b}+1]]-[[@{empathy} + @{perception_b}]]))/10)]]}}" datai18n="dipl-det-motives-u">DIPL. (DET. MOTIVES)<span>(D-DM%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_det-motives" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. \n(Det. Motives)}} {{result=[[floor((abs(1d100cs<@{detect_motives}cf>[[@{detect_motives}+1]]-@{detect_motives}))/10)]]}}" datai18n="dipl-det-motives-u">DIPL. (DET. MOTIVES)<span>(D-DM%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_dipl-intimidate" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. (Intimidate)}} {{result=[[floor((abs(1d100cs<[[@{empathy} + @{strength_b}]]cf>[[@{empathy} + @{strength_b}+1]]-[[@{empathy} + @{strength_b}]]))/10)]]}}" datai18n="dipl-intimidate-u">DIPL. (INTIMIDATE)<span>(D-Int%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_dipl-intimidate" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Dipl. (Intimidate)}} {{result=[[floor((abs(1d100cs<@{intimidate}cf>[[@{intimidate}+1]]-@{intimidate}))/10)]]}}" datai18n="dipl-intimidate-u">DIPL. (INTIMIDATE)<span>(D-Int%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_firearms-long-gun" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Firearms (Long Gun)}} {{result=[[floor((abs(1d100cs<[[@{perception} + @{willpower_b}]]cf>[[@{perception} + @{willpower_b}+1]]-[[@{perception} + @{willpower_b}]]))/10)]]}}" datai18n="firearms-long-gun-u">FIREARMS (LONG GUN)<span>(Frm-L%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_firearms-long-gun" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Firearms (Long Gun)}} {{result=[[floor((abs(1d100cs<@{long_gun}cf>[[@{long_gun}+1]]-@{long_gun}))/10)]]}}" datai18n="firearms-long-gun-u">FIREARMS (LONG GUN)<span>(Frm-L%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_firearms-pistol" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Firearms (Pistol)}} {{result=[[floor((abs(1d100cs<[[@{perception} + @{willpower_b}]]cf>[[@{perception} + @{willpower_b}+1]]-[[@{perception} + @{willpower_b}]]))/10)]]}}" datai18n="firearms-pistol-u">FIREARMS (PISTOL)<span>(Frm-P%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_firearms-pistol" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Firearms (Pistol)}} {{result=[[floor((abs(1d100cs<@{pistol}cf>[[@{pistol}+1]]-@{pistol}))/10)]]}}" datai18n="firearms-pistol-u">FIREARMS (PISTOL)<span>(Frm-P%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_first-aid" value="&{template:ou} {{name=@{character_name}}} {{roll_name=First Aid}} {{result=[[floor((abs(1d100cs<[[@{perception} + @{willpower_b}]]cf>[[@{perception} + @{willpower_b}+1]]-[[@{perception} + @{willpower_b}]]))/10)]]}}" datai18n="first-aid-u">FIRST AID<span>(FAid%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_first-aid" value="&{template:ou} {{name=@{character_name}}} {{roll_name=First Aid}} {{result=[[floor((abs(1d100cs<@{first_aid}cf>@{first_aid}+1]]-@{first_aid}))/10)]]}}" datai18n="first-aid-u">FIRST AID<span>(FAid%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_melee-attack-bludgeon" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Melee Attack-[Bludgeon]}} {{result=[[floor((abs(1d100cs<[[@{strength} + @{willpower_b}]]cf>[[@{strength} + @{willpower_b}+1]]-[[@{strength} + @{willpower_b}]]))/10)]]}}" datai18n="melee-attack-bludgeon-u">MELEE ATTACK-[BLUDGEON]<span>(MA-Bl%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_melee-attack-bludgeon" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Melee Attack-[Bludgeon]}} {{result=[[floor((abs(1d100cs<@{bludgeon}cf>[[@{bludgeon}+1]]-@{bludgeon}))/10)]]}}" datai18n="melee-attack-bludgeon-u">MELEE ATTACK-[BLUDGEON]<span>(MA-Bl%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_melee-attack-piercing" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Melee Attack-[Piercing]}} {{result=[[floor((abs(1d100cs<[[@{strength} + @{willpower_b}]]cf>[[@{strength} + @{willpower_b}+1]]-[[@{strength} + @{willpower_b}]]))/10)]]}}" datai18n="melee-attack-piercing-u">MELEE ATTACK-[PIERCING]<span>(MA-Pi%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_melee-attack-piercing" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Melee Attack-[Piercing]}} {{result=[[floor((abs(1d100cs<@{piercing}cf>[[@{piercing}+1]]-@{piercing}))/10)]]}}" datai18n="melee-attack-piercing-u">MELEE ATTACK-[PIERCING]<span>(MA-Pi%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_melee-attack-slashing" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Melee Attack-[Slashing]}} {{result=[[floor((abs(1d100cs<[[@{strength} + @{willpower_b}]]cf>[[@{strength} + @{willpower_b}+1]]-[[@{strength} + @{willpower_b}]]))/10)]]}}" datai18n="melee-attack-slashing-u">MELEE ATTACK-[SLASHING]<span>(MA-Sl%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_melee-attack-slashing" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Melee Attack-[Slashing]}} {{result=[[floor((abs(1d100cs<@{slashing}cf>[[@{slashing}+1]]-@{slashing}))/10)]]}}" datai18n="melee-attack-slashing-u">MELEE ATTACK-[SLASHING]<span>(MA-Sl%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_navigation" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Navigation}} {{result=[[floor((abs(1d100cs<[[@{perception} + @{willpower_b}]]cf>[[@{perception} + @{willpower_b}+1]]-[[@{perception} + @{willpower_b}]]))/10)]]}}" datai18n="navigation-u">NAVIGATION<span>(Nav%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_navigation" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Navigation}} {{result=[[floor((abs(1d100cs<@{navigation}cf>[[@{navigation}+1]]-@{navigation}))/10)]]}}" datai18n="navigation-u">NAVIGATION<span>(Nav%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_throw" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Throw}} {{result=[[floor((abs(1d100cs<[[@{perception} + @{strength_b}]]cf>[[@{perception} + @{strength_b}+1]]-[[@{perception} + @{strength_b}]]))/10)]]}}" datai18n="throw-u">THROW<span>(Thrw%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_throw" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Throw}} {{result=[[floor((abs(1d100cs<@{throw}cf>[[@{throw}+1]]-@{throw}))/10)]]}}" datai18n="throw-u">THROW<span>(Thrw%)</span></button>
                         </div>
                     </div>
                 </div>
@@ -132,30 +132,30 @@
                 <div class="sheet-2colrow">
                     <div class="sheet-col">
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_advanced-medicine" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Advanced Medicine}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="advanced-medicine-u">ADVANCED MEDICINE<span>(AMed%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_advanced-medicine" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Advanced Medicine}} {{result=[[floor((abs(1d100cs<@{advanced_medicine}cf>[[@{advanced_medicine}+1]]-@{advanced_medicine}))/10)]]}}" datai18n="advanced-medicine-u">ADVANCED MEDICINE<span>(AMed%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_construction-matl" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Construction (Mat'l)}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="construction-matl-u">CONSTRUCTION (MAT'L)<span>(Cnst%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_construction-matl" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Construction (Mat'l)}} {{result=[[floor((abs(1d100cs<@{construction}cf>[[@{construction}+1]]-@{construction}))/10)]]}}" datai18n="construction-matl-u">CONSTRUCTION (MAT'L)<span>(Cnst%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_engineering" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Engineering}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="engineering-u">ENGINEERING<span>(Eng%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_engineering" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Engineering}} {{result=[[floor((abs(1d100cs<@{engineering}cf>[[@{engineering}+1]]-@{engineering}))/10)]]}}" datai18n="engineering-u">ENGINEERING<span>(Eng%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_martial-arts" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Martial Arts}} {{result=[[floor((abs(1d100cs<[[@{strength_b} + @{perception_b}]]cf>[[@{strength_b} + @{perception_b}+1]]-[[@{strength_b} + @{perception_b}]]))/10)]]}}" datai18n="martial-arts-u">MARTIAL ARTS<span>(MtlA%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_martial-arts" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Martial Arts}} {{result=[[floor((abs(1d100cs<@{martial_arts}cf>[[@{martial_arts}+1]]-@{martial_arts}))/10)]]}}" datai18n="martial-arts-u">MARTIAL ARTS<span>(MtlA%)</span></button>
                         </div>
                     </div>
                     <div class="sheet-col">
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_pilot-vehicle" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Pilot (Vehicle)}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="pilot-vehicle-u">PILOT (VEHICLE)<span>(Pil%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_pilot-vehicle" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Pilot (Vehicle)}} {{result=[[floor((abs(1d100cs<@{pilot}cf>[[@{pilot}+1]]-@{pilot}))/10)]]}}" datai18n="pilot-vehicle-u">PILOT (VEHICLE)<span>(Pil%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_science-field" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Science (Field)}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="science-field-u">SCIENCE (FIELD)<span>(Sci%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_science-field" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Science (Field)}} {{result=[[floor((abs(1d100cs<@{science}cf>[[@{science}+1]]-@{science}))/10)]]}}" datai18n="science-field-u">SCIENCE (FIELD)<span>(Sci%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_survival" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Survival}} {{result=[[floor((abs(1d100cs<[[@{perception_b} + @{willpower_b}]]cf>[[@{perception_b} + @{willpower_b}+1]]-[[@{perception_b} + @{willpower_b}]]))/10)]]}}" datai18n="survival-u">SURVIVAL<span>(Srvl%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_survival" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Survival}} {{result=[[floor((abs(1d100cs<@{survival}cf>[[@{survival}+1]]-@{survival}))/10)]]}}" datai18n="survival-u">SURVIVAL<span>(Srvl%)</span></button>
                         </div>
                         <div class="skill-box">
-                        	<button class="btn ui-draggable" type="roll" name="roll_toughness" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Toughness}} {{result=[[floor((abs(1d100cs<[[@{strength_b} + @{willpower_b}]]cf>[[@{strength_b} + @{willpower_b}+1]]-[[@{strength_b} + @{willpower_b}]]))/10)]]}}" datai18n="toughness-u">TOUGHNESS<span>(Tgh%)</span></button>
+                        	<button class="btn ui-draggable" type="roll" name="roll_toughness" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Toughness}} {{result=[[floor((abs(1d100cs<@{toughness}cf>[[@{toughness}+1]]-@{toughness}))/10)]]}}" datai18n="toughness-u">TOUGHNESS<span>(Tgh%)</span></button>
                         </div>
                     </div>
                 </div>
@@ -220,8 +220,47 @@
             </div>
             <div class="resource-section" style="padding-right:0px">
                 <div class="defence">
-                    <div class="toggle-container"><span class="subtitle label">Defence</span></div>
                 <input type="checkbox" class="display-toggle" checked=checked>
+                <div class="toggle-container"><span class="subtitle label">Defence</span></div>
+                <input type="checkbox" class="option-toggle" checked=checked><span>y</span>
+                <div class="options">
+                    <div class="defence-container">
+                        <span class="label" style="width:auto;line-height:15px;margin-right:10px;">Base Defence </span>
+                        <input type="number" name="attr_defence_base" value="0" min="0">
+                    </div>
+                    <div class="defence-container">
+                        <span class="label" style="width:auto;line-height:15px;margin-right:10px;">Acid Bonus </span>
+                        <input type="number" name="attr_defence_acid_mod" value="0" min="0" max="4">
+                    </div>
+                    <div class="defence-container">
+                        <span class="label" style="width:auto;line-height:15px;margin-right:10px;">Bludgeoning Bonus </span>
+                        <input type="number" name="attr_defence_bludgeoning_mod" value="0" min="0" max="4">
+                    </div>
+                    <div class="defence-container">
+                        <span class="label" style="width:auto;line-height:15px;margin-right:10px;">Electrical Bonus </span>
+                        <input type="number" name="attr_defence_electrical_mod" value="0" min="0" max="4">
+                    </div>
+                    <div class="defence-container">
+                        <span class="label" style="width:auto;line-height:15px;margin-right:10px;">Piercing Bonus </span>
+                        <input type="number" name="attr_defence_piercing_mod" value="0" min="0" max="4">
+                    </div>
+                    <div class="defence-container">
+                        <span class="label" style="width:auto;line-height:15px;margin-right:10px;">Poison Bonus </span>
+                        <input type="number" name="attr_defence_poison_mod" value="0" min="0" max="4">
+                    </div>
+                    <div class="defence-container">
+                        <span class="label" style="width:auto;line-height:15px;margin-right:10px;">Radiation Bonus </span>
+                        <input type="number" name="attr_defence_radiation_mod" value="0" min="0" max="4">
+                    </div>
+                    <div class="defence-container">
+                        <span class="label" style="width:auto;line-height:15px;margin-right:10px;">Slashing Bonus </span>
+                        <input type="number" name="attr_defence_slashing_mod" value="0" min="0" max="4">
+                    </div>
+                    <div class="defence-container">
+                        <span class="label" style="width:auto;line-height:15px;margin-right:10px;">Thermal Bonus </span>
+                        <input type="number" name="attr_defence_thermal_mod" value="0" min="0" max="4">
+                    </div>
+                </div>
                 <div class="collapsible">
                     <input type="hidden" name="attr_defence_base" value="0">
                     <div class="defence-container">
@@ -251,8 +290,9 @@
                 </div>
                 </div>
                 <div class="health">
-                    <div class="toggle-container"><span class="subtitle label">Injuries</span></div>
+                    
                 <input type="checkbox" class="display-toggle" checked=checked>
+                <div class="toggle-container"><span class="subtitle label">Injuries</span></div>
                 <div class="collapsible">
                     <div class="injury-container">
                         <input type="checkbox" name="attr_injury1_max" value="1"><input type="text" name="attr_injury1" placeholder="Injury #1">
@@ -269,8 +309,8 @@
                     <div class="injury-container">
                         <input type="checkbox" name="attr_injury5_max" value="1"><input type="text" name="attr_injury5" placeholder="Injury #5">
                     </div>
-                    <div>
-                        <span class="resource label">Viral <img src="https://imgur.com/j1KRRtT.png"></span>
+                    <div class="injury-container">
+                        <span class="label" style="width:auto;margin-right:20px;">Viral <img src="https://imgur.com/j1KRRtT.png"></span>
                         <input type="number" name="attr_viral" min="0" max="10" value="0"></input>
                     </div>
                 </div>
@@ -326,8 +366,33 @@
 <!-- WORKERS -->
 <script type="text/worker">
  //load sheet
+var spew = ["strength","perception","empathy","willpower"];
+var basic_skills = ["balance","climb","composure","dodge","endurance","expressions","grapple","hold","jump_leap","lift_pull","resist_pain","search","stealth","spot_listen","swim"];
+var trained_skills = ["bow_crossbow","brawl","calm_other","persuade","barter_bribe","command_coax","detect_motives","intimidate","long_gun","pistol","first_aid","bludgeon","piercing","slashing","navigation","throw"];
+var expert_skills = ["advanced_mediciine","construction","engineering","martial_arts","pilot","science","survival","toughness"];
+var defence = ["damage_threshold","damage_threshold_max","defence_base","defence_acid_mod","defence_bludgeoning_mod","defence_electrical_mod","defence_piercing_mod","defence_poison_mod","defence_radiation_mod","defence_slashing_mod","defence_thermal_mod","defence_mod"];
 on("sheet:opened", function(eventinfo) {
-        console.log("Outbreak: Undead Character Sheet v0.1 loaded.");
+    //initialize all
+        var update = {};
+        var failure = {};
+        //spew-ai
+        getAttrs(spew, function(v) {
+            for (var index in v) {
+                if (isNaN(parseInt(v[index]))) {
+                    update[index] = "0";
+                    console.log(index+" initialized.");
+                }
+            }
+            setAttrs(update, function() {
+                update_attr("strength");
+                update_attr("perception");
+                update_attr("empathy");
+                update_attr("willpower");
+            });
+            
+        });
+        
+
     });
 on("change:strength", function() {
     update_attr("strength");
@@ -342,38 +407,58 @@ on("change:willpower", function() {
     update_attr("willpower");
     });
 on("change:strength_b", function() {
-    update_skills("strength"); 
+    update_skills("strength");
 });
 on("change:perception_b", function() {
-    update_skills("perception"); 
+    update_skills("perception");
 });
 on("change:empathy_b", function() {
-    update_skills("empathy"); 
+    update_skills("empathy");
 });
 on("change:willpower_b", function() {
-    update_skills("willpower"); 
+    update_skills("willpower");
 });
-
+on("change:defence_base change:defence_acid_mod change:defence_bludgeoning_mod change:defence_electrical_mod change:defence_piercing_mod change:defence_poison_mod change:defence_radiation_mod change:defence_slashing_mod change:defence_thermal_mod", function() {
+    update_defence();
+});
 on("change:damage_threshold change:damage_threshold_max", function() {
     var update = {};
     getAttrs(["damage_threshold","damage_threshold_max"], function(v) {
         if (parseInt(v["damage_threshold"])>parseInt(v["damage_threshold_max"])) {
            update["damage_threshold"] = v["damage_threshold_max"];
-        }  
+        }
         setAttrs(update);
    });
 });
+var update_defence = function() {
+    var update = {};
+    getAttrs(defence, function(v) {
+        var mods = parseInt(v["defence_base"]) + parseInt(v["defence_mod"]);
+        update["defence_acid"]= parseInt(v["defence_acid_mod"]) + mods;
+        update["defence_bludgeoning"]= parseInt(v["defence_bludgeoning_mod"]) + mods;
+        update["defence_electrical"]= parseInt(v["defence_electrical_mod"]) + mods;
+        update["defence_piercing"]= parseInt(v["defence_piercing_mod"]) + mods;
+        update["defence_poison"]= parseInt(v["defence_poison_mod"]) + mods;
+        update["defence_radiation"]= parseInt(v["defence_radiation_mod"]) + mods;
+        update["defence_slashing"]= parseInt(v["defence_slashing_mod"]) + mods;
+        update["defence_thermal"]= parseInt(v["defence_thermal_mod"]) + mods;
+    });
+    setAttrs(update);
+};
 var update_attr = function(attr) {
     var update = {};
     getAttrs([attr],function(v) {
-        var bonus = Math.floor(v[attr]/10);
+        var bonus = parseInt(Math.floor(parseFloat(v[attr])/10));
+        console.log("bonus:"+bonus);
            update[attr+"_b"] = bonus.toString();
            setAttrs(update);
         });
     };
 var update_skills = function(attr) {
-		var update = {};
-		getAttrs(["strength","perception","empathy","willpower","strength_b","perception_b","empathy_b","willpower_b","damage_threshold_mod"],function(v) {
+                var update = {};
+                var attrs = spew.concat(["damage_threshold_mod"]);
+		getAttrs(attrs,function(v) {
+		    console.log(attrs);
 			switch (attr) {
 			case "strength":
 			    update["climb"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
@@ -383,7 +468,16 @@ var update_skills = function(attr) {
 			    update["lift_pull"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
 			    update["resist_pain"] = (parseInt(v["willpower"])+parseInt(v["strength_b"])).toString();
 			    update["swim"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
-			    update["damage_threshold_max"] = (parseInt(v["strength_b"])+parseInt(v["willpower_b"])+parseInt(v["damage_threshold_mod"]));
+			    update["bow_crossbow"] = (parseInt(v["perception"])+parseInt(v["strength_b"])).toString();
+			    update["brawl"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
+			    update["intimidate"] = (parseInt(v["empathy"])+parseInt(v["strength_b"])).toString();
+			    update["bludgeoning"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
+			    update["piercing"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
+			    update["slashing"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
+			    update["throw"] = (parseInt(v["perception"])+parseInt(v["strength_b"])).toString();
+			    update["martial_arts"] = (parseInt(v["strength_b"])+parseInt(v["perception_b"])).toString();
+			    update["toughness"] = (parseInt(v["strength_b"])+parseInt(v["willpower_b"])).toString();
+			    update["damage_threshold_max"] = (parseInt(v["strength_b"])+parseInt(v["willpower_b"])+parseInt(v["damage_threshold_mod"])).toString();
 			break;
 			case "perception":
 			    update["balance"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
@@ -395,10 +489,30 @@ var update_skills = function(attr) {
 			    update["search"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
 			    update["stealth"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
 			    update["spot_listen"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
+			    update["bow_crossbow"] = (parseInt(v["perception"])+parseInt(v["strength_b"])).toString();
+			    update["persuade"] = (parseInt(v["empathy"])+parseInt(v["perception_b"])).toString();
+			    update["long_gun"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
+			    update["pistol"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
+			    update["first_aid"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
+			    update["navigation"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
+			    update["throw"] = (parseInt(v["perception"])+parseInt(v["strength_b"])).toString();
+			    update["advanced_medicine"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["construction"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["engineering"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["martial_arts"] = (parseInt(v["strength_b"])+parseInt(v["perception_b"])).toString();
+			    update["pilot"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["science"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["survival"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
 			break;
 			case "empathy":
 			    update["composure"] = (parseInt(v["willpower"])+parseInt(v["empathy_b"])).toString();
 			    update["expression"] = (parseInt(v["empathy"])+parseInt(v["perception_b"])).toString();
+			    update["calm_other"] = (parseInt(v["empathy"])+parseInt(v["willpower_b"])).toString();
+			    update["persuade"] = (parseInt(v["empathy"])+parseInt(v["perception_b"])).toString();
+			    update["barter_bribe"] = (parseInt(v["empathy"])+parseInt(v["willpower_b"])).toString();
+			    update["command_coax"] = (parseInt(v["empathy"])+parseInt(v["willpower_b"])).toString();
+			    update["detect_motives"] = (parseInt(v["empathy"])+parseInt(v["perception_b"])).toString();
+			    update["intimidate"] = (parseInt(v["empathy"])+parseInt(v["strength_b"])).toString();
 		    break;
 			case "willpower":
 			    update["balance"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
@@ -413,7 +527,25 @@ var update_skills = function(attr) {
 			    update["stealth"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString(); 
 			    update["spot_listen"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString(); 
 			    update["swim"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString(); 
-			    update["damage_threshold_max"] = (parseInt(v["strength_b"])+parseInt(v["willpower_b"])+parseInt(v["damage_threshold_mod"]));
+			    update["brawl"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
+			    update["calm_other"] = (parseInt(v["empathy"])+parseInt(v["willpower_b"])).toString();
+			    update["barter_bribe"] = (parseInt(v["empathy"])+parseInt(v["willpower_b"])).toString();
+			    update["command_coax"] = (parseInt(v["empathy"])+parseInt(v["willpower_b"])).toString();
+			    update["long_gun"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
+			    update["pistol"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
+			    update["first_aid"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
+			    update["bludgeoning"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
+			    update["piercing"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
+			    update["slashing"] = (parseInt(v["strength"])+parseInt(v["willpower_b"])).toString();
+			    update["navigation"] = (parseInt(v["perception"])+parseInt(v["willpower_b"])).toString();
+			    update["advanced_medicine"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["construction"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["engineering"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["pilot"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["science"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["survival"] = (parseInt(v["perception_b"])+parseInt(v["willpower_b"])).toString();
+			    update["toughness"] = (parseInt(v["strength_b"])+parseInt(v["willpower_b"])).toString();
+			    update["damage_threshold_max"] = (parseInt(v["strength_b"])+parseInt(v["willpower_b"])+parseInt(v["damage_threshold_mod"])).toString();
 			break;
 			
 			}
