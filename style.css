@@ -218,19 +218,52 @@ input[type=number] {
     border-radius:0px;
 }
 
+.sheet-injur-container input[type=numer] {
+    display:inline-block;
+}
+
 .sheet-injury-container {
     text-align:right;
+    display:inline-block;
 }
 
 .sheet-display-toggle {
     opacity:0;    
     position: absolute;
     top: 10px;
-    right: 0px;
-    width: 100%;
+    left: 0px;
+    width: 80%;
     height: 100%;
 }
+.sheet-option-toggle + span {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    white-space: nowrap;
+    width: 18px;
+    height: 18px;
+    font-size: 20px;
+    font-family: pictos;
+    color: #A0A0A0;
+    cursor: pointer;
+    margin-top: 0px;
+}
+.sheet-option-toggle {
+    opacity: 0;
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 18px;
+    height: 18px;
+    z-index: 2;
+}
+.sheet-option-toggle:hover +span {
+    color:black;
+}
 
+.sheet-display-toggle:hover + div {
+    color:black;
+}
 .sheet-health .sheet-display-toggle:checked ~ .sheet-collapsible {
     display:none;
 }
@@ -238,17 +271,41 @@ input[type=number] {
 .sheet-defence .sheet-display-toggle:checked ~ .sheet-collapsible {
     display:none;
 }
+
+.sheet-defence .sheet-option-toggle:checked ~ .sheet-options {
+    display:none;
+}
 .sheet-toggle-container {
     background-color: #DCDCDC;
     padding-left:10px;
+    color: #A0A0A0;
 }
+
 .sheet-health, .sheet-defence {
     position:relative;
     margin-bottom: 5px;
 }
 
 .sheet-defence-label {
-    font-size:15px;
+    font-size:12px;
     display:inline-block;
     font-weight: bold;
+}
+
+.sheet-options , .sheet-collapsible {
+    border:1px solid #DCDCDC;
+    padding:10px;
+    height:auto;
+    text-align:right;
+}
+
+
+.sheet-defence-container {
+    text-align:right;
+    display:inline-block;
+    height:auto;
+}
+
+.sheet-defence-container input[type=number] {
+    font-size:12px;
 }
