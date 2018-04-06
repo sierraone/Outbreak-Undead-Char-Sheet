@@ -1,3 +1,113 @@
+.sheet-trait-template {
+    display:none;
+    text-align:left;
+}
+[data-groupname=repeating_traits] input[value="[ABILITY]"] ~ .sheet-ability-display,
+[data-groupname=repeating_traits] input[value="[ABILITY]"] ~ .sheet-ability-option,
+[data-groupname=repeating_traits] input[value="[PARADIGM]"] ~ .sheet-paradigm-display,
+[data-groupname=repeating_traits] input[value="[PARADIGM]"] ~ .sheet-paradigm-option,
+[data-groupname=repeating_traits] input[value="[ADDICTION]"] ~ .sheet-addiction-display,
+[data-groupname=repeating_traits] input[value="[ADDICTION]"] ~ .sheet-addiction-option {
+    display:block;
+}
+.repcontrol .btn {
+    /*visibility: hidden;*/
+    border: medium none;
+    color: white !important;
+    background: none;
+    box-shadow: none;
+}
+input[type=checkbox] {
+    position:absolute;
+    height:36px;
+    top:0px;
+}
+.sheet-skills-container .sheet-options input[type=checkbox],
+.sheet-skills-container .sheet-collapsible input[type=checkbox] {
+    position:relative;
+    height:auto;
+}
+[data-groupname=repeating_traits] input[type=checkbox] {
+    position:absolute;
+    height:25px;
+    top:0px;
+}
+
+.repcontrol .btn:focus {
+    outline: 0;
+}
+.repcontainer .repitem .itemcontrol .repcontrol_del {
+    position: absolute;
+    right:50px;
+    top:2px;
+    padding:0px;
+    font-size:18px;
+    z-index:999;
+    box-shadow:none;
+    background:transparent;
+    color:#ff3232;
+    border:none;
+
+}
+.repcontainer .repitem .itemcontrol .repcontrol_move {
+    position: absolute;
+    right:80px;
+    top:2px;
+    padding:0px;
+    background:transparent;
+    box-shadow:none;
+    border:none;
+    font-size:20px;
+    z-index:999;
+}
+
+.repcontrol .repcontrol_edit:after {
+    content: '(';
+    visibility: visible;
+    font-family: pictos;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-size: 12px;
+    height: 12px;
+    width: 12px;
+    padding: 2px 4px 2px 4px;
+    color: black;
+}
+
+.editmode ~ .repcontrol .repcontrol_edit:after {
+    content: ')';
+}
+
+.repcontrol .repcontrol_add:before {
+    content: '&';
+    visibility: visible;
+    font-family: pictos;
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 2px;
+    font-size: 12px;
+    height: 12px;
+    width: 12px;
+    padding: 2px 4px 2px 4px;
+    color: black;
+}
+.repcontrol .repcontrol_edit:hover:after,
+.repcontrol .repcontrol_add:hover:before
+{
+    background-color: #EFEFEF;
+}
+.repcontrol .repcontrol_add {
+    float:left;
+}
+.repcontrol .repcontrol_edit {
+    float:right;
+}
+.repcontrol {
+    min-height:30px;
+}
+
+
 
 span {
 font-size: 13px;
@@ -9,7 +119,7 @@ line-height: 16px;
     display:inline-block;
 }
 .sheet-attributes-container {
-    width: 60px;
+    width: 70px;
     border: 1px solid #666;
     border-radius: 5px;
     position: relative;
@@ -23,7 +133,7 @@ line-height: 16px;
 
 .sheet-label {
     display: inline-block;
-    font-size: 9px;
+    font-size: 12px;
     line-height: 10px;
     width: auto;
     text-align: center;
@@ -33,7 +143,7 @@ line-height: 16px;
 }
 
 .sheet-attr-label {
-    font-size:8px;
+    font-size:9px;
 }
 .sheet-attr {
     font-size: 27px;
@@ -57,6 +167,7 @@ line-height: 16px;
     margin-bottom:10px;
     margin-top:10px;
 }
+
 
 .sheet-skill-box {
     text-align:left;
@@ -105,17 +216,17 @@ line-height: 16px;
 }
  
 .sheet-skill-box button[type=roll], .sheet-dice-container button[type=roll] {
-background-color: transparent;
-color: black;
-border: none;
-font-size: 12px;
-line-height: 12px;
-background-image: none;
-text-shadow: none;
-box-shadow: none;
-padding: 0px;
-margin: 0px;
-font-weight: bold;   
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-size: 12px;
+    line-height: 12px;
+    background-image: none;
+    text-shadow: none;
+    box-shadow: none;
+    padding: 0px;
+    margin: 0px;
+    font-weight: bold;   
 }
 
 .sheet-dice {
@@ -201,7 +312,8 @@ input[type=number] {
     width:auto;
 }
 
-.sheet-injury-container input[type=text] {
+.sheet-traits-section input[type=text],
+.sheet-health input[type=text] {
     width:auto;
     border:none;
     border-bottom:1px solid black;
@@ -211,7 +323,7 @@ input[type=number] {
     border-radius:0px;
 }
 
-.sheet-injur-container input[type=number] {
+.sheet-injury-container input[type=number] {
     display:inline-block;
 }
 
@@ -222,43 +334,61 @@ input[type=number] {
 
 .sheet-display-toggle {
     opacity:0;    
-    position: absolute;
-    top: 10px;
     left: 0px;
-    width: 80%;
-    height: 100%;
+    width: 100%;
+    height: 36px;
 }
 .sheet-option-toggle + span {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 8px;
+    right: 2px;
     white-space: nowrap;
-    width: 18px;
-    height: 18px;
-    font-size: 20px;
+    width: 25px;
+    height: 36px;
+    font-size: 25px;
     font-family: pictos;
-    color: #A0A0A0;
+    color: black;
     cursor: pointer;
     margin-top: 0px;
+    display:none;
 }
-.sheet-option-toggle {
-    opacity: 0;
-    position: absolute;
-    top: 10px;
-    right: 5px;
-    width: 18px;
-    height: 18px;
-    z-index: 2;
+[data-groupname=repeating_traits] .sheet-option-toggle + span {
+    font-size:20px;
+    top:3px;
+    right:2px;
+    height:25px;
 }
-.sheet-option-toggle:hover +span {
-    color:black;
+[data-groupname=repeating_traits] .sheet-option-toggle {
+    z-index:2;
+}
+[data-groupname=repeating_traits] .sheet-display-toggle {
+    z-index:1;
 }
 
+
+
+.sheet-option-toggle {
+    opacity: 0;
+    right: 0px;
+    width: 25px;
+    height: 25px;
+}
+.sheet-option-toggle:hover +span {
+    display:inline-block;
+}
+.sheet-display-toggle:hover ~ .sheet-option-toggle + span {
+    display:inline-block;
+}
 .sheet-display-toggle:hover + div {
     color:black;
 }
+
+[data-groupname=repeating_traits] .sheet-display-toggle:checked ~ .sheet-collapsible,
+[data-groupname=repeating_traits] .sheet-option-toggle:not(:checked) ~ .sheet-collapsible,
+.sheet-notes-section .sheet-display-toggle:checked ~ .sheet-collapsible,
+.sheet-traits-section .sheet-display-toggle:checked ~ .sheet-collapsible,
 .sheet-inventory-section .sheet-display-toggle:checked ~ .sheet-collapsible,
-.sheet-advancement .sheet-display-toggle:checked ~ .sheet-collapsible,
+.sheet-miscellaneous .sheet-display-toggle:checked ~ .sheet-collapsible,
 .sheet-resources .sheet-display-toggle:checked ~ .sheet-collapsible,
 .sheet-skills .sheet-display-toggle:checked ~ .sheet-collapsible,
 .sheet-skills .sheet-option-toggle:not(:checked) ~ .sheet-collapsible,
@@ -268,7 +398,7 @@ input[type=number] {
 .sheet-defence .sheet-display-toggle:checked ~ .sheet-collapsible {
     display:none;
 }
-
+[data-groupname=repeating_traits] .sheet-option-toggle:checked ~ .sheet-options,
 .sheet-skills .sheet-option-toggle:checked ~ .sheet-options,
 .sheet-defence .sheet-option-toggle:checked ~ .sheet-options,
 .sheet-resources .sheet-option-toggle:checked ~ .sheet-options {
@@ -276,11 +406,25 @@ input[type=number] {
 }
 .sheet-toggle-container {
     background-color: #DCDCDC;
-    padding-left:10px;
     color: #808080;
     text-align:left;
+    height:36px;
+    padding-left:10px;
 }
-.sheet-skills-container, .sheet-inventory-section, .sheet-advancement, .sheet-resources, .sheet-health, .sheet-defence, .sheet-dice-section{
+
+.sheet-traits-section .sheet-collapsible .sheet-toggle-container {
+    height:25px;
+}
+.repeating_traits,
+.sheet-notes-section,
+.sheet-traits-section, 
+.sheet-skills-container, 
+.sheet-inventory-section, 
+.sheet-miscellaneous, 
+.sheet-resources, 
+.sheet-health, 
+.sheet-defence, 
+.sheet-dice-section{
     position:relative;
     margin-bottom: 5px;
 }
@@ -296,7 +440,6 @@ input[type=number] {
     padding:10px;
     height:auto;
     text-align:right;
-    border-radius:0px 0px 10px 10px;
 }
 
 
@@ -337,3 +480,41 @@ input[type=number] {
     margin-bottom:10px;
     background-color:green;
 }
+
+.sheet-miscellaneous .sheet-skill-box {
+    text-align:right;
+}
+
+textarea {
+    width:98%;
+    max-width:98%;
+    min-width:98%;
+    box-shadow:none;
+    word-wrap:break-word;
+    border-radius:0px;
+}
+
+.sheet-name {
+    font-size: 12px;
+    position:absolute;
+    top:2px;
+    left:10px;
+}
+.sheet-sublabel {
+    font-size: 10px;
+    position:absolute;
+    top:2px;
+    left:30%;
+}
+.sheet-traits-section .sheet-collapsible, .sheet-traits-section .sheet-options {
+    padding:0px;
+}
+[data-groupname=repeating_traits] {
+    margin-top: 5px;
+}
+[data-groupname=repeating_traits] .sheet-collapsible, [data-groupname=repeating_traits] .sheet-options {
+    padding:5px;
+    border-left:0px;
+    border-right:0px;
+}
+
