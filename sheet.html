@@ -5,22 +5,22 @@
             <img src="https://imgur.com/8kQujlA.jpg" style="height:60px;display:inline-block;vertical-align:top;">
             <div class="attr-container">
                 <div class="attributes-container">
-                    <span class="sheet-label attr-label">STRENGTH</span>
+                    <span class=" attr-label sheet-label">STRENGTH</span>
                     <input type="text" class="sheet-attr" name="attr_strength" maxlength="2">
                     <input type="hidden" name="attr_strength_b">
                 </div>
                 <div class="attributes-container">
-                    <span class="sheet-label attr-label">PERCEPTION</span>
+                    <span class="attr-label sheet-label">PERCEPTION</span>
                     <input type="text" class="sheet-attr" name="attr_perception" maxlength="2">
                     <input type="hidden" name="attr_perception_b">
                 </div>
                 <div class="attributes-container">
-                    <span class="sheet-label attr-label">EMPATHY</span>
+                    <span class="attr-label sheet-label">EMPATHY</span>
                     <input type="text" class="sheet-attr" name="attr_empathy" maxlength="2">
                     <input type="hidden" name="attr_empathy_b">
                 </div>
                 <div class="attributes-container">
-                    <span class="sheet-label attr-label">WILLPOWER</span>
+                    <span class="attr-label sheet-label">WILLPOWER</span>
                     <input type="text" class="sheet-attr" name="attr_willpower" maxlength="2">
                     <input type="hidden" name="attr_perception_b">
                 </div>
@@ -28,15 +28,14 @@
         </div>
             <div class="skills-container">
                 <div class="skills">
-                    <input type="checkbox" class="display-toggle" checked=checked>
+                    <input type="checkbox" class="display-toggle" value="1" name="attr_skill_display_flag">
                     <div class="toggle-container"><span class="subtitle label">Skills</span></div>
-                    <input type="checkbox" class="option-toggle" checked=checked><span>y</span>
+                    <input type="checkbox" class="option-toggle" checked=checked value="1" name="attr_skill_option_flag"><span>y</span>
                     <div class="options">
                         <div class="sheet-2colrow">
                         <div class="sheet-col" style="width:45%;">
                             <span class="sheet-label subtitle">Basic Skill Checks</span>
-
-                            <<div class="skill-box">
+                            <div class="skill-box">
 	<input type="checkbox"  name="attr_balance_support_flag" value="1">
     <button class="btn ui-draggable" type="roll" name="roll_balance" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Balance}} {{result=[[floor((abs(1d100cs<@{balance}cf>[[@{balance}+1]]-@{balance}))/10)]]}}" datai18n="balance-u">BALANCE<span>(Bal%)</span></button>
 </div>
@@ -167,7 +166,7 @@
                     </div>
                     <span class="sheet-label subtitle" style="margin-left:30%;margin-top:20px;width:100%;">Expert Skill Checks</span>
                     <div class="sheet-2colrow">
-                        <div class="sheet-col" style="width:40%;">
+                        <div class="sheet-col" style="width:45%;">
                             <div class="skill-box">
 							<input type="checkbox"  name="attr_advanced_medicine_support_flag" value="1">
                             	<button class="btn ui-draggable" type="roll" name="roll_advanced_medicine" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Advanced Medicine}} {{result=[[floor((abs(1d100cs<@{advanced_medicine}cf>[[@{advanced_medicine}+1]]-@{advanced_medicine}))/10)]]}}" datai18n="advanced-medicine-u">ADVANCED MEDICINE<span>(AMed%)</span></button>
@@ -349,7 +348,7 @@
                     </div>
                     <span class="sheet-label subtitle" style="margin-left:30%;margin-top:20px;width:100%;">Expert Skill Checks</span>
                     <div class="sheet-2colrow">
-                        <div class="sheet-col" style="width:40%;">
+                        <div class="sheet-col" style="width:45%;">
                             <div class="skill-box">
                             	<button class="btn ui-draggable" type="roll" name="roll_advanced_medicine" value="&{template:ou} {{name=@{character_name}}} {{roll_name=Advanced Medicine}} {{result=[[floor((abs(1d100cs<@{advanced_medicine}cf>[[@{advanced_medicine}+1]]-@{advanced_medicine}))/10)]]}}" datai18n="advanced-medicine-u">ADVANCED MEDICINE<span>(AMed%)</span></button>
                                 <input type="hidden" name="attr_advanced_medicine_support_flag" value="0">
@@ -398,17 +397,66 @@
                 </div>
             </div>
             <div class="inventory-section">
-                <input type="checkbox" class="display-toggle" checked=checked>
+                <input type="checkbox" class="display-toggle" value="1" name="attr_inventory_display_flag">
                 <div class="toggle-container"><span class="subtitle label">Inventory</span></div>
                 <div class="collapsible">
                     Inventory goes here!
+                </div>
+            </div>
+            <div class="traits-section">
+                <input type="checkbox" class="display-toggle" value="1" name="attr_traits_display_flag">
+                <div class="toggle-container"><span class="subtitle label">Traits and Abilities</span></div>
+                <div class="collapsible">
+                    <fieldset class="repeating_traits">     
+                    <input type="checkbox" class="option-toggle" value="1" name="attr-repeat-trait-option-flag"><span>y</span>
+                    <input type="checkbox" class="display-toggle" value="1" name="attr_repeat-trait-display-flag">
+                    <div class="toggle-container"><span class="name label" name="attr_repeat-trait-name"></span>
+                    <span class="sublabel label" name="attr_repeat-trait-type"></span></div>
+                    <div class="options">
+                        <select class="dropdown" name="attr_repeat-trait-type" style="float:left;">
+                            <option value="[ABILITY]">Ability</option>
+                            <option value="[PARADIGM]">Paradigm</option>
+                            <option value="[ADDICTION]">Addiction</option>
+                        </select>
+                        <input type="hidden" name="attr_repeat-trait-type">
+                        <span class="label" style="margin-left:10px;">NAME:</span><input type="text" name="attr_repeat-trait-name">
+                        <div class="ability-option trait-template">
+                        ABILITY OPTIONS
+                        </div>
+                        <div class="paradigm-option trait-template">
+                        PARADIGM OPTIONS
+                        </div>
+                        <div class="addiction-option trait-template">
+                        ADDICTION OPTIONS
+                        </div>
+                    </div>
+                    <div class="collapsible">
+                        <input type="hidden" name="attr_repeat-trait-type">
+                        <div class="ability-display trait-template">
+                        ABILITY DISPLAY
+                        </div>
+                        <div class="paradigm-display trait-template">
+                        PARADIGM DISPLAY
+                        </div>
+                        <div class="addiction-display trait-template">
+                        ADDICTION DISPLAY
+                        </div>
+                    </div>    
+                    </fieldset>
+                </div>
+            </div>
+            <div class="notes-section">
+                <input type="checkbox" class="display-toggle" value="1" name="attr_notes_display_flag">
+                <div class="toggle-container"><span class="subtitle label">Notes</span></div>
+                <div class="collapsible">
+                    <textarea name="attr_notes"></textarea>
                 </div>
             </div>
         </div>
     <div class="sheet-col" style="width:26%;">
         <img src="https://imgur.com/wvobRO2.jpg" style="width:max;">
         <div class="dice-section">
-            <input type="checkbox" class="display-toggle" checked=checked>
+            <input type="checkbox" class="display-toggle" value="1" name="attr_dice_display_flag">
                 <div class="toggle-container"><span class="subtitle label">Dice</span></div>
                 <div class="collapsible">
             <div class="dice-container">
@@ -421,7 +469,7 @@
             <div class="dice-container">
                 <span class="label">SPEED DICE
                 <input type="number" name="attr_speed" min="1" max="99" value="1"></input>
-                <button type="roll" name="roll_speed" title="Speed Dice" class="btn ui-draggable" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Speed}} {{result=[[@{speed}d6!pcs>6cf<0 &{tracker}]] Speed }}">
+                <button type="roll" name="roll_speed" title="Speed Dice" class="btn ui-draggable" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Speed}} {{result=[[@{speed}d6!pcs>6cf<0 &{tracker:+}]] Speed }}">
                     <div class="speed dice"></div></span>
                 </button>
             </div>
@@ -443,7 +491,7 @@
             
         </div>
         <div class="resources resource-section">
-                <input type="checkbox" class="display-toggle" checked=checked>
+                <input type="checkbox" class="display-toggle" value="1" name="attr_resources_display_flag">
                 <div class="toggle-container"><span class="subtitle label">Resources</span></div>
             <div class="collapsible">
             <div class="resource-container">
@@ -461,6 +509,10 @@
                 <input type="number" name="attr_survival_points" min="0" max="999" value="0"></input>
             </div>
             <div class="resource-container">
+                <span class="resource label">Gestalt Levels <img src="https://i.imgur.com/DYydK5X.png"></span>
+                <input type="number" name="attr_gestalt_levels" min="0" max="999" value="0"></input>
+                    </div>
+            <div class="resource-container">
                 <span class="resource label">Competency Points <img src="https://imgur.com/FbCycSR.png"></span>
                 <input type="number" name="attr_competency" min="0" max="999" value="0"></input>
             </div>
@@ -472,9 +524,9 @@
         </div>
             <div class="resource-section">
                 <div class="defence">
-                <input type="checkbox" class="display-toggle" checked=checked>
+                <input type="checkbox" class="display-toggle" value="1" name="attr_defence_display_flag">
                 <div class="toggle-container"><span class="subtitle label">Defence</span></div>
-                <input type="checkbox" class="option-toggle" checked=checked><span>y</span>
+                <input type="checkbox" class="option-toggle" value="1" checked=checked name="attr_defence_option_flag"><span>y</span>
                 <div class="options">
                     <div class="defence-container">
                         <span class="label" style="line-height:15px;">Base Defence </span>
@@ -516,34 +568,34 @@
                 <div class="collapsible">
                     <input type="hidden" name="attr_defence_base" value="0">
                     <div class="defence-container">
-                        <span class="label">ACID DEFENSIVE BONUS  <span class="defence-label" name="attr_defence_acid"></span></span>
+                        <span class="label">ACID BONUS  <span class="defence-label" name="attr_defence_acid"></span></span>
                     </div>
                     <div class="defence-container">
-                        <span class="label">BLUDGEONING DEFENSIVE BONUS  <span class="defence-label" name="attr_defence_bludgeoning"></span></span>
+                        <span class="label">BLUDGEONING BONUS  <span class="defence-label" name="attr_defence_bludgeoning"></span></span>
                     </div>
                     <div class="defence-container">
-                        <span class="label">ELECTRICAL DEFENSIVE BONUS  <span class="defence-label" name="attr_defence_electrical"></span></span></span>
+                        <span class="label">ELECTRICAL BONUS  <span class="defence-label" name="attr_defence_electrical"></span></span></span>
                     </div>
                     <div class="defence-container">
-                        <span class="label">PIERCING DEFENSIVE BONUS  <span class="defence-label" name="attr_defence_piercing"></span></span>
+                        <span class="label">PIERCING BONUS  <span class="defence-label" name="attr_defence_piercing"></span></span>
                     </div>
                     <div class="defence-container">
-                        <span class="label">POISON DEFENSIVE BONUS  <span class="defence-label" name="attr_defence_poison"></span></span>
+                        <span class="label">POISON BONUS  <span class="defence-label" name="attr_defence_poison"></span></span>
                     </div>
                     <div class="defence-container">
-                        <span class="label">RADIATION DEFENSIVE BONUS  <span class="defence-label" name="attr_defence_radiation"></span></span>
+                        <span class="label">RADIATION BONUS  <span class="defence-label" name="attr_defence_radiation"></span></span>
                     </div>
                     <div class="defence-container">
-                        <span class="label">SLASHING DEFENSIVE BONUS  <span class="defence-label" name="attr_defence_slashing"></span></span>
+                        <span class="label">SLASHING BONUS  <span class="defence-label" name="attr_defence_slashing"></span></span>
                     </div>
                     <div class="defence-container">
-                        <span class="label">THERMAL DEFENSIVE BONUS  <span class="defence-label" name="attr_defence_thermal"></span></span>
+                        <span class="label">THERMAL BONUS  <span class="defence-label" name="attr_defence_thermal"></span></span>
                     </div>
                 </div>
                 </div>
                 <div class="health">
                     
-                <input type="checkbox" class="display-toggle" checked=checked>
+                <input type="checkbox" class="display-toggle" value="1" name="attr_health_display_toggle">
                 <div class="toggle-container"><span class="subtitle label">Injuries</span></div>
                 <div class="collapsible">
                     <div class="injury-container">
@@ -567,15 +619,11 @@
                     </div>
                 </div>
                 </div>
-                <div class="advancement">
+                <div class="miscellaneous">
                     
-                <input type="checkbox" class="display-toggle" checked=checked>
-                <div class="toggle-container"><span class="subtitle label">Advancement</span></div>
+                <input type="checkbox" class="display-toggle" value="1" name="attr_misc_display_flag">
+                <div class="toggle-container"><span class="subtitle label">Miscellaneous Rolls</span></div>
                 <div class="collapsible">
-                    <div class="resource-container">
-                <span class="resource label">Gestalt Levels <img src="https://i.imgur.com/DYydK5X.png"></span>
-                <input type="number" name="attr_gestalt_levels" min="0" max="999" value="0"></input>
-                    </div>
                     <div class="dice-container">
                         <span class="label" style="font-size:12px;">SPEW +</span>
                          <select name="attr_spew_advancement_attribute" class="dropdown">                
@@ -585,6 +633,12 @@
                             <option value="Willpower">Willpower</option>
                          </select>
                          <button class="btn ui-draggable" type="roll" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=SPEW Advancement}} {{result=+[[1d3]] to  @{spew_advancement_attribute} for [[@{spew_advancement_cost}]] Gestalt Levels}}"><div class="gestalt dice"><img src="https://i.imgur.com/DYydK5X.png"</div></button>
+                    </div>
+                    <div class="skill-box">
+                        <button class="btn ui-draggable" type="roll" name="roll_short_rest" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Short Rest}} {{result=Recover [[@{strength_b}+d3]] Damage points}}">SHORT REST</button>
+                    </div>
+                    <div class="skill-box">
+                        <button class="btn ui-draggable" type="roll" name="roll_long_rest" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Long Rest}} {{result=Rest for [[6+d3]] Time}}">LONG REST</button>
                     </div>
                 </div>
                 </div>
