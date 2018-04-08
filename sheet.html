@@ -463,10 +463,6 @@
                         <input type="number" name="attr_repeat-ability-tier" min="0" max="5" value="1"><br>
                         <span class="label" style="margin-top: 5px;">DETAILS:</span>
                         <textarea name="attr_repeat-trait-effects" rows="4" style="height:auto;" placeholder="Support/Training Value/Mastery"></textarea>
-                        <span class="label" style="margin-top: 5px;">INJURY PENALTY</span>
-                        <input type="text" name="attr_paradigm_injury"><br>
-                        <span class="label" style-"margin-top: 5px;">DEATH PENALTY</span>
-                        <input type="text" name="attr_paradigm_death">
                         </div>
                         <div class="paradigm-option trait-template">
                         <span class="label" style="margin-top: 5px;">DESCRIPTION:</span>
@@ -532,14 +528,14 @@
             <div class="dice-container">
                 <span class="label">DIFFICULTY DICE
                 <input type="number" name="attr_difficulty" min="0" max="99" value="0"></input>
-                <button type="roll" name="roll_difficulty" title="Difficulty Dice" class="btn ui-draggable" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Difficulty}} {{result=+[[@{difficulty}d6!pcs>6cf<0]] Difficulty}}">
+                <button type="roll" name="roll_difficulty" title="Difficulty Dice" class="btn ui-draggable" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Difficulty}} {{result=+[[@{difficulty}d6!pcs<0cf>6]] Difficulty}}">
                     <div class="difficulty dice" ></div></span>
                 </button>
             </div>
             <div class="dice-container">
                 <span class="label">SPEED DICE
                 <input type="number" name="attr_speed" min="1" max="99" value="1"></input>
-                <button type="roll" name="roll_speed" title="Speed Dice" class="btn ui-draggable" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Speed}} {{result=[[@{speed}d6!pcs>6cf<0 &{tracker:+}]] Speed }}">
+                <button type="roll" name="roll_speed" title="Speed Dice" class="btn ui-draggable" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Speed}} {{result=[[@{speed}d6!pcs<0cf>6 &{tracker:+}]] Speed }}">
                     <div class="speed dice"></div></span>
                 </button>
             </div>
@@ -553,7 +549,7 @@
             <div class="dice-container">
                 <span class="label">DEPLETION DICE
                 <input type="number" name="attr_depletion" min="0" max="99" value="0"></input>
-                <button type="roll" name="roll_depletion" title="Depletion Dice" class="btn ui-draggable" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Depletion}} {{result=[[@{depletion}d6!pcs>6cf<0]] Depletion}}">
+                <button type="roll" name="roll_depletion" title="Depletion Dice" class="btn ui-draggable" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Depletion}} {{result=[[@{depletion}d6!pcs<0cf>6]] Depletion}}">
                     <div class="depletion dice"></div></span>
                 </button>
             </div>
@@ -697,7 +693,7 @@
                 <div class="toggle-container"><span class="subtitle label">Miscellaneous Rolls</span></div>
                 <div class="collapsible">
                     <div class="skill-box">
-                        <button class="btn ui-draggable" type="roll" name="roll_short_rest" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Short Rest}} {{result=Recover [[@{strength_b}+d3]] Damage points}}">SHORT REST</button>
+                        <button class="btn ui-draggable" type="roll" name="roll_short_rest" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Short Rest}} {{result=Recover [[@{s_b}+d3]] Damage points}}">SHORT REST</button>
                     </div>
                     <div class="skill-box">
                         <button class="btn ui-draggable" type="roll" name="roll_long_rest" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Long Rest}} {{result=Rest for [[6+d3]] Time}}">LONG REST</button>
