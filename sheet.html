@@ -696,17 +696,6 @@
                 <input type="checkbox" class="display-toggle" value="1" name="attr_misc_display_flag">
                 <div class="toggle-container"><span class="subtitle label">Miscellaneous Rolls</span></div>
                 <div class="collapsible">
-                    <div class="dice-container">
-                        <span class="label" style="font-size:12px;">SPEW +</span>
-                         <select name="attr_spew_advancement_attribute" class="dropdown">    
-                            <option disabled selected>--Select Attribute--</option>
-                            <option value="Strength">Strength</option>
-                            <option value="Perception">Perception</option>
-                            <option value="Empathy">Empathy</option>
-                            <option value="Willpower">Willpower</option>
-                         </select>
-                         <button class="btn ui-draggable" type="roll" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=SPEW Advancement}} {{result=+[[1d3]] to  @{spew_advancement_attribute} for [[@{spew_advancement_cost}]] Gestalt Levels}}"><div class="gestalt dice"><img src="https://i.imgur.com/DYydK5X.png"</div></button>
-                    </div>
                     <div class="skill-box">
                         <button class="btn ui-draggable" type="roll" name="roll_short_rest" value="&{template:dice-roll} {{name=@{character_name}}} {{roll_name=Short Rest}} {{result=Recover [[@{strength_b}+d3]] Damage points}}">SHORT REST</button>
                     </div>
@@ -768,7 +757,7 @@
  //load sheet
 var spew = ["s","p","e","w"];
 var spew_b = ["s_b", "p_b", "e_b", "w_b"];
-var defence = ["def_acid","def_bludgeon","def_electrical","def_piercing","def_poison","def_radiation","def_slashing","def_thermal"];
+var defence = ["def_acid_mod","def_bludgeon_mod","def_electrical_mod","def_piercing_mod","def_poison_mod","def_radiation_mod","def_slashing_mod","def_thermal_mod"];
 var skills = {
     "balance" : ["p","w_b"], 
     "climb" : ["s","w_b"],
@@ -830,6 +819,7 @@ on("sheet:opened", function(eventinfo) {
                 console.log("OU: Initialized all defence stats.");
                 update.dmg_thresh = "0";
                 update.dmg_thresh_max = "0";
+                update.dmg_thresh_max_flag = "0";
                 update.dmg_thresh_mod = "0";
                 update.def_base = "0";
                 _.each(defence, function(def) {
@@ -840,7 +830,6 @@ on("sheet:opened", function(eventinfo) {
             }
         });
 });
-
 on("change:s change:p change:e change:w", function(eventInfo) {
     update_attr(eventInfo.sourceAttribute, eventInfo.newValue, eventInfo.previousValue);
     });
@@ -850,15 +839,33 @@ on("change:balance_mod change:climb_mod change:composure_mod change:dodge_mod ch
 on("change:s_b change:w_b change:dmg_thresh_mod", function() {
     update_dmg_thresh();
 });
-on("change:dmg_thresh_max", function(eventInfo) {
+on("change:dmg_thresh change:dmg_thresh_max", function(eventInfo) {
     var update = {};
-    console.log(eventInfo);
-    getAttrs(["dmg_thresh"], function(v) {
-        if (parseInt(v.dmg_thresh) == parseInt(eventInfo.previousValue)) {
-            update.dmg_thresh = eventInfo.newValue;
-            setAttrs(update);
+    getAttrs(["dmg_thresh","dmg_thresh_max","dmg_thresh_max_flag"], function(v) {
+        if (parseInt(v.dmg_thresh)>parseInt(v.dmg_thresh_max)) {
+            console.log("DMG over. Reset.");
+            update.dmg_thresh = v.dmg_thresh_max;
         }  
+        else if (parseInt(v.dmg_thresh)==parseInt(v.dmg_thresh_max)) {
+            update.dmg_thresh_max_flag = "1";
+            console.log("DMG max now. Flag.");
+        }
+        else if (v.dmg_thresh_max_flag == "1" && eventInfo.sourceAttribute == "dmg_thresh_max" && eventInfo.sourceType =="sheetworker") {
+            update.dmg_thresh = v.dmg_thresh_max;
+            console.log("Was maxed. Max increased. Still maxed.");
+        }
+        else {
+            console.log("Is not maxed.");
+            update.dmg_thresh_max_flag = "0";
+        }
+        setAttrs(update);
     });
+});
+on("change:dmg_thresh_mod", function() {
+    update_dmg_thresh();
+});
+on("change:def_base change:def_acid_mod change:def_bludgeon_mod change:def_electrical_mod change:def_piercing_mod change:def_poison_mod change:def_radiation_mod change:def_slashing_mod change:def_thermal_mod", function(eventInfo) {
+    update_def(eventInfo.sourceAttribute); 
 });
 var update_attr = function(attr, newValue, previousValue) {
     var update = {};
@@ -911,5 +918,23 @@ var update_skills = function(param) {
             setAttrs(update);
         });
     }    
+};
+var update_def = function(def) {
+    var update = {};
+    if (def=="def_base") {
+        console.log(def);
+        getAttrs(defence.concat(def), function(v) {
+            _.each(defence, function(x) {
+                update[x.substring(0,x.length-4)] = parseInt(v[x]) + parseInt(v.def_base);
+            }); 
+            setAttrs(update);
+        });
+    }
+    else {
+        getAttrs(["def_base",def], function(v) {
+        update[def.substring(0,def.length-4)] = parseInt(v[def]) + parseInt(v.def_base);    
+        setAttrs(update);
+        });
+    }
 };
 </script>
